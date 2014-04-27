@@ -57,13 +57,16 @@ class List(object):
         Request URL and parse response. Yield a ``Torrent`` for every torrent
         on page.
         """
-        request = urlopen(str(self.url))
-        document = html.parse(request)
-        root = document.getroot()
-        items = [self._build_torrent(row) for row in
+        try:
+            request = urlopen(str(self.url))
+            document = html.parse(request)
+            root = document.getroot()
+            items = [self._build_torrent(row) for row in
                  self._get_torrent_rows(root)]
-        for item in items:
-            yield item
+            for item in items:
+                yield item
+        except Exception as e:
+            pass
 
     def __iter__(self):
         return self.items()
