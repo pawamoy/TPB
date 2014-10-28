@@ -294,7 +294,7 @@ class AuthTestCase(RemoteTestCase):
             self.user.login("testuser", "wrongpassword")
         except Exception as e:
             msg = "Login failed (2), check username and password."
-            self.assertEqual(e.message, msg)
+            self.assertEqual(str(e), msg)
         else:
             self.assertFalse(True)
         finally:
