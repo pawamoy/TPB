@@ -163,7 +163,7 @@
             <tr><th scope="row">Default sort order:</th>
                 <td>
                     <select name="setSortOrder">
-                    % values = range(1,15) + [99]
+                    % values = list(range(1,15)) + [99]
                     % for i in values:
                     %     if i == user.sort_order:
                               <option value="{{i}}" selected="selected"></option>
