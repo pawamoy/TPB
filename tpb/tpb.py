@@ -351,8 +351,9 @@ class Torrent(object):
     @property
     def files(self):
         if not self._files:
-            path = '/ajax_details_filelist.php?id={id}'.format(id=self.id)
-            url = self.url.path(path)
+            path = '/ajax_details_filelist.php'
+            query = 'id={id}'.format(id=self.id)
+            url = self.url.path(path).query(query)
             request = get(str(url))
             root = html.fromstring(request.text)
             rows = root.findall('.//tr')
