@@ -351,15 +351,18 @@ class Torrent(object):
     @property
     def files(self):
         if not self._files:
-            path = '/ajax_details_filelist.php?id={id}'.format(id=self.id)
-            url = self.url.path(path)
-            request = get(str(url), headers={'User-Agent' : "Magic Browser","origin_req_host" : "thepiratebay.se"})
+            path = '/ajax_details_filelist.php'
+            query = 'id={id}'.format(id=self.id)
+            url = self.url.path(path).query(query)
+            request = get(str(url))
             root = html.fromstring(request.text)
             rows = root.findall('.//tr')
             for row in rows:
-                name, size = [unicode(v.text_content())
-                              for v in row.findall('.//td')]
-                self._files[name] = size.replace('\xa0', ' ')
+                td = row.findall('.//td')
+                if len(td) == 2:
+                    name, size = [unicode(v.text_content())
+                                  for v in td]
+                    self._files[name] = size.replace('\xa0', ' ')
         return self._files
 
     @property
