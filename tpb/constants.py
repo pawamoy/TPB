@@ -83,6 +83,9 @@ class ORDERS(Constants):
         DES = 13
         ASC = 14
 
+    class RELEVANCE:
+        DES = 99
+
 
 class CATEGORIES(Constants):
     ALL = 0

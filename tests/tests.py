@@ -7,7 +7,7 @@ import unittest
 
 from lxml import html
 
-from tpb.tpb import TPB, Search, Recent, Top, List, Paginated
+from tpb.tpb import TPB, Search, Recent, Top, List, Paginated, User
 from tpb.constants import ConstantType, Constants, ORDERS, CATEGORIES
 from tpb.utils import URL
 
@@ -274,6 +274,96 @@ class TPBTestCase(RemoteTestCase):
         self.assertTrue(isinstance(a_top, Top))
         self.assertTrue(isinstance(b_top, Top))
         self.assertEqual(str(a_top.url), str(b_top.url))
+
+
+class AuthTestCase(RemoteTestCase):
+
+    def setUp(self):
+        self.user = User(base_url=self.url)
+
+    def test_login(self):
+
+        # Login with correct credentials
+        self.user.login("testuser", "testpassword")
+        self.assertEqual(self.user.username, "testuser")
+        self.assertEqual(self.user.password, "testpassword")
+        self.user.logout()
+
+        # Login with incorrect credentials
+        try:
+            self.user.login("testuser", "wrongpassword")
+        except Exception as e:
+            msg = "Login failed (2), check username and password."
+            self.assertEqual(str(e), msg)
+        else:
+            self.assertFalse(True)
+        finally:
+            self.assertIsNone(self.user.username)
+
+    def test_logout(self):
+        self.user.login("testuser", "testpassword")
+        self.user.logout()
+        self.assertIsNone(self.user.username)
+
+
+class RetrieveTestCase(RemoteTestCase):
+
+    def setUp(self):
+        self.user = User(base_url=self.url)
+        self.user.login("testuser", "testpassword")
+
+    def test_retrieve_settings(self):
+        self.user.retrieve_settings()
+        self.assertIsNotNone(self.user.current_ip)
+        self.assertIsNotNone(self.user.current_language)
+        self.assertIsNotNone(self.user.sort_order)
+        self.assertIsNotNone(self.user.status)
+        self.assertIsNotNone(self.user.torrents)
+        self.assertIsNotNone(self.user.comments)
+
+    def tearDown(self):
+        self.user.logout()
+
+
+class UpdateTestCase(RemoteTestCase):
+
+    def setUp(self):
+        self.user = User(base_url=self.url)
+        self.user.login("testuser", "testpassword")
+        self.user.retrieve_settings()
+
+    def test_change_sort_order(self):
+        sort_order = self.user.sort_order
+        # Try to change it
+        self.user.change_sort_order(1)
+        self.user.retrieve_settings()
+        # See if it sticks
+        self.assertEqual(self.user.sort_order, 1)
+        if sort_order == 1:
+            # Do it again to see if it really changed
+            self.user.change_sort_order(2)
+            self.user.retrieve_settings()
+            self.assertEqual(self.user.sort_order, 2)
+        # Now change it back to what it was before
+        self.user.change_sort_order(sort_order)
+
+    def test_change_password(self):
+        password = self.user.password
+        # Try to change it
+        self.user.change_password("newpassword")
+        self.user.logout()
+        # See if the new password works
+        try:
+            self.user.login("testuser", "newpassword")
+        except:
+            # The password wasn't changed.
+            self.assertFalse(True)
+        else:
+            # Change it back
+            self.user.change_password(password)
+
+    def tearDown(self):
+        self.user.logout()
 
 
 def load_tests(loader, tests, discovery):

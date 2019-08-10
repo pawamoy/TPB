@@ -20,7 +20,7 @@ import time
 
 from .utils import URL
 
-from requests import get
+from requests import get, session
 
 if sys.version_info >= (3, 0):
     unicode = str
@@ -408,3 +408,136 @@ class Torrent(object):
 
     def __repr__(self):
         return '{0} by {1}'.format(self.title, self.user)
+
+
+class User(object):
+
+    """
+    Create a new User object
+    """
+    def __init__(self, base_url):
+        self.username = None
+        self.current_ip = None
+        self.current_language = None
+        self.status = None
+        self.sort_order = None
+        self.password = None
+        self.session = session()
+        self.torrents = None
+        self.comments = None
+        self.base_url = base_url
+
+    """
+    Get user's preferences from '/settings'
+    Should be called after logging in or changing settings
+    """
+    def retrieve_settings(self):
+        if self.username:
+            response = self.session.get(self.base_url + "/settings")
+            expression = "You have uploaded ([0-9]+) torrent\(s\)\." \
+                         "(?:\\n|<br\/>)*" \
+                         "You have written ([0-9]+) comment\(s\)\."
+            match = re.search(expression, response.text)
+            if match:
+                self.torrents = int(match.group(1))
+                self.comments = int(match.group(2))
+            root = html.fromstring(response.text)
+            table = root.find('.//table[@id=\'cpl\']')
+            self.sort_order = int(table
+                                  .find('.//option[@selected=\'selected\']')
+                                  .attrib['value'])
+            for tr in table.iterchildren():
+                try:
+                    tr_iter = tr.iterchildren()
+                    th = tr_iter.next()
+                    td = tr_iter.next()
+                    if th.text == 'Current IP:':
+                        self.current_ip = td.text
+                    elif th.text == 'Current language:':
+                        self.current_language = td.text
+                    elif th.text == 'Status:':
+                        self.status = td.text
+                    else:
+                        pass
+                except:
+                    # The tag wasn't found. Move on.
+                    pass
+        else:
+            raise ValueError
+    """
+    Login the user
+    """
+    def login(self, username, password):
+        if username and password:
+            data = {
+                "username": username,
+                "password": password,
+                "act":      "login"
+            }
+            response = self.session.post(self.base_url + "/login",
+                                         data=data)
+            # If it redirects to the settings page, we're in!
+            if "settings" in response.url:
+                self.username = username
+                self.password = password
+            else:
+                # Get the error message shown in red.
+                root = html.fromstring(response.text)
+                msg = root.find('.//font[@color=\'red\']').text
+                raise Exception(msg)
+        else:
+            raise ValueError
+    """
+    Logout the user
+    """
+    def logout(self):
+        if self.username:
+            response = self.session.get(self.base_url + "/logout")
+            self.username = None
+    """
+    Internal method to update settings
+    """
+    def __update_settings(self, new_password=""):
+        _old_password = ""
+        if new_password:
+            _old_password = self.password
+        data = {
+            "show_porn": "1",
+            "pw_old": _old_password,
+            "pw_new": new_password,
+            "pw_new2": new_password,
+            "setSortOrder": self.sort_order
+        }
+        response = self.session.post(self.base_url+"/settings", data=data)
+        # If it fails for some reason
+        if response.status_code != 200:
+            raise IOError
+    """
+    Changes the order in which torrent search results are sorted
+    """
+    def change_sort_order(self, sort_order):
+        if sort_order and self.username:
+            self.retrieve_settings()
+            self.sort_order = sort_order
+            self.__update_settings()
+        else:
+            raise ValueError
+    """
+    Changes the user's password
+    'old_password' is required only if the password was changed elsewhere
+    """
+    def change_password(self, new_password, old_password=None):
+        if not self.username or not new_password:
+            return
+        if old_password:
+            self.password = old_password
+            self.login(self.username, self.password)
+        self.retrieve_settings()
+        self.__update_settings(new_password=new_password)
+    """
+    Prints object's values
+    """
+    def print_user(self):
+        for key, value in self.__dict__.iteritems():
+            if not key.startswith("__"):
+                print(key+": "+str(value))
