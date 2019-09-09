@@ -1,5 +1,10 @@
-purl==0.8
-lxml==3.2.3
-python-dateutil==2.2
-cssselect==0.9.1
-requests==2.3.0
+certifi==2019.6.16
+chardet==3.0.4
+cssselect==1.1.0
+idna==2.8
+lxml==4.4.1
+purl==1.5
+python-dateutil==2.8.0
+requests==2.22.0
+six==1.12.0
+urllib3==1.25.3
