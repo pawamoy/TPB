@@ -6,17 +6,16 @@ import time
 import unittest
 
 from lxml import html
+from requests import get
 
 from tpb.tpb import TPB, Search, Recent, Top, List, Paginated
 from tpb.constants import ConstantType, Constants, ORDERS, CATEGORIES
-from tpb.utils import URL
+from tpb.utils import URL, headers
 
 if sys.version_info >= (3, 0):
-    from urllib.request import urlopen
     from tests.cases import RemoteTestCase
     unicode = str
 else:
-    from urllib2 import urlopen
     from cases import RemoteTestCase
 
 
@@ -106,8 +105,12 @@ class ParsingTestCase(RemoteTestCase):
         self.assertTrue(diff > 1)
 
     def test_torrent_rows(self):
-        request = urlopen(str(self.torrents.url))
-        document = html.parse(request)
+        request = get(
+            str(self.torrents.url),
+            headers=headers(),
+            stream=True
+        )
+        document = html.parse(request.raw)
         rows = self.torrents._get_torrent_rows(document.getroot())
         self.assertEqual(len(rows), 30)
 

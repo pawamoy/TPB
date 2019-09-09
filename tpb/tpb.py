@@ -18,7 +18,7 @@ import re
 import sys
 import time
 
-from .utils import URL
+from .utils import URL, headers
 
 from requests import get
 
@@ -57,9 +57,8 @@ class List(object):
         on page.
         """
         try:
-            request = urlopen(str(self.url))
-            document = html.parse(request)
-            root = document.getroot()
+            request = get(str(self.url), headers=headers())
+            root = html.fromstring(request.text)
             items = [self._build_torrent(row) for row in
                  self._get_torrent_rows(root)]
             for item in items:
@@ -346,7 +345,7 @@ class Torrent(object):
     @property
     def info(self):
         if self._info is None:
-            request = get(str(self.url), headers={'User-Agent' : "Magic Browser","origin_req_host" : "thepiratebay.se"})
+            request = get(str(self.url), headers=headers())
             root = html.fromstring(request.text)
             info = root.cssselect('#details > .nfo > pre')[0].text_content()
             self._info = info
@@ -355,15 +354,16 @@ class Torrent(object):
     @property
     def files(self):
         if not self._files:
-            path = '/ajax_details_filelist.php?id={id}'.format(id=self.id)
-            url = self.url.path(path)
-            request = get(str(url), headers={'User-Agent' : "Magic Browser","origin_req_host" : "thepiratebay.se"})
+            url = self.url.path('/ajax_details_filelist.php').query_param('id', self.id)
+            request = get(str(url), headers=headers())
             root = html.fromstring(request.text)
             rows = root.findall('.//tr')
             for row in rows:
-                name, size = [unicode(v.text_content())
-                              for v in row.findall('.//td')]
-                self._files[name] = size.replace('\xa0', ' ')
+                td = row.findall('.//td')
+                if len(td) == 2:
+                    name, size = [unicode(v.text_content())
+                                  for v in td]
+                    self._files[name] = size.replace('\xa0', ' ')
         return self._files
 
     @property

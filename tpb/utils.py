@@ -1,4 +1,5 @@
 from collections import OrderedDict
+import random
 
 from purl import URL as PURL
 
@@ -61,3 +62,32 @@ class Segments(object):
             fget=lambda x: cls._get_segment(x, segment),
             fset=lambda x, v: cls._set_segment(x, segment, v),
         )
+
+
+def headers():
+    """
+    The Pirate Bay blocks requests (403 Forbidden)
+    basing on User-Agent header, so it's probably better to rotate them.
+    User-Agents taken from:
+    https://techblog.willshouse.com/2012/01/03/most-common-user-agents/
+    """
+    return {
+        "User-Agent": random.choice(USER_AGENTS),
+        "origin_req_host": "thepiratebay.se",
+    }
+
+
+USER_AGENTS = (
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+    'AppleWebKit/537.36 (KHTML, like Gecko) '
+    'Chrome/60.0.3112.113 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+    'AppleWebKit/537.36 (KHTML, like Gecko) '
+    'Chrome/60.0.3112.101 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 6.1; Win64; x64) '
+    'AppleWebKit/537.36 (KHTML, like Gecko) '
+    'Chrome/60.0.3112.113 Safari/537.36',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) '
+    'AppleWebKit/537.36 (KHTML, like Gecko) '
+    'Chrome/60.0.3112.113 Safari/537.36',
+)
