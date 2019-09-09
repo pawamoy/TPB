@@ -154,7 +154,7 @@ class Paginated(List):
                 # Stop if no more torrents
                 first = next(items, None)
                 if first is None:
-                    raise StopIteration()
+                    return
                 # Yield them if not
                 else:
                     yield first

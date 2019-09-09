@@ -183,7 +183,7 @@ class PaginationTestCase(RemoteTestCase):
 
             def items(self):
                 if self.pages_left == 0:
-                    raise StopIteration()
+                    return
                 for i in range(10):
                     yield i
                 self.pages_left -= 1
