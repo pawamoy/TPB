@@ -6,18 +6,17 @@ except ImportError:
     from distutils.core import setup
 
 setup(
-    name='ThePirateBay',
-    version='v1.3.5',
+    name='tpb',
+    version='v1.3.6',
     install_requires=['purl', 'dateutils', 'lxml', 'cssselect', 'requests'],
     author='Karan Goel',
     author_email='karan@goel.im',
     packages=['tpb', 'tests'],
     test_suite='tests',
-    url='https://github.com/thekarangoel/TPB/',
+    url='https://github.com/pawamoy/TPB/',
     license='MIT License',
     description='Unofficial Python API for ThePirateBay.',
-    long_description='Unofficial Python API for ThePirateBay.\
-                      Usage: https://github.com/thekarangoel/TPB.',
+    long_description='Unofficial Python API for ThePirateBay.',
     classifiers=[
         'Development Status :: 4 - Beta',
         'License :: OSI Approved :: MIT License',

@@ -2,20 +2,22 @@
 
 Unofficial Python API for [ThePirateBay](http://thepiratebay.org/).
 
+This project was forked from the original one as it was not maintained anymore.
+
 | Build Status | Test Coverage | Version | Downloads (30 days) |
 | ------------ | ------------- | ------- | ------------------- |
 | [![Build Status](https://travis-ci.org/pawamoy/TPB.png?branch=master)](https://travis-ci.org/pawamoy/TPB) | [![Coverage Status](https://coveralls.io/repos/pawamoy/TPB/badge.png)](https://coveralls.io/r/pawamoy/TPB) | [![Latest Version](https://img.shields.io/pypi/v/ThePirateBay.svg)](https://pypi.python.org/pypi/ThePirateBay/) | [![Downloads](https://img.shields.io/pypi/dm/ThePirateBay.svg)](https://pypi.python.org/pypi/ThePirateBay/) |
 
 Installation
-=============
+============
 ```sh
-$ pip install ThePirateBay
+$ pip install tpb
 ```
 
 Note that ``ThePirateBay`` depends on ``lxml``. If you run into problems in the compilation of ``lxml`` through ``pip``, install the ``libxml2-dev`` and ``libxslt-dev`` packages on your system.
 
 Usage
-==========
+=====
 
 ```python
 from tpb import TPB
@@ -57,7 +59,7 @@ for torrent in t.search('public domain'):
 ```
 
 Torrent details available
-==================
+=========================
 
 Attributes
 ----------
@@ -107,9 +109,9 @@ $ REMOTE=true python -m unittest discover
 ```
 
 Donations
-========
+=========
 
-If *TPB* has helped you in any way, and you'd like to help the developer, please consider donating.
+If *TPB* has helped you in any way, and you'd like to help the original author, please consider donating.
 
 **- BTC: [19dLDL4ax7xRmMiGDAbkizh6WA6Yei2zP5](http://i.imgur.com/bAQgKLN.png)**
 
@@ -118,6 +120,6 @@ If *TPB* has helped you in any way, and you'd like to help the developer, please
 **- Flattr: [https://flattr.com/profile/thekarangoel](https://flattr.com/profile/thekarangoel)**
 
 Contribute
-========
+==========
 
 If you want to add any new features, or improve existing ones, feel free to send a pull request!
