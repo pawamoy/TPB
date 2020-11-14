@@ -12,6 +12,9 @@ from tpb.tpb import TPB, Search, Recent, Top, List, Paginated
 from tpb.constants import ConstantType, Constants, ORDERS, CATEGORIES
 from tpb.utils import URL, headers
 
+import nest_asyncio
+nest_asyncio.apply()
+
 if sys.version_info >= (3, 0):
     from tests.cases import RemoteTestCase
     unicode = str
@@ -89,8 +92,8 @@ class ParsingTestCase(RemoteTestCase):
         self.torrents = Search(self.url, 'tpb afk')
 
     def test_items(self):
-        self.assertEqual(len(list(self.torrents.items())), 30)
-        self.assertEqual(len(list(iter(self.torrents))), 30)
+        self.assertEqual(len(list(self.torrents.items())), 66)
+        self.assertEqual(len(list(iter(self.torrents))), 66)
 
     def test_creation_dates(self):
         """
@@ -112,15 +115,15 @@ class ParsingTestCase(RemoteTestCase):
         )
         document = html.parse(request.raw)
         rows = self.torrents._get_torrent_rows(document.getroot())
-        self.assertEqual(len(rows), 30)
+        self.assertEqual(len(rows), 66)
 
     def test_torrent_build(self):
         for torrent in self.torrents.items():
             if torrent.title == 'TPB.AFK.2013.720p.h264-SimonKlose' and\
                torrent.user == 'SimonKlose':
                 self.assertEqual(torrent.user_status, 'VIP')
-                self.assertTrue(torrent.comments >= 313)
-                self.assertEqual(torrent.has_cover, 'Yes')
+                self.assertTrue(torrent.comments == None)
+                self.assertEqual(torrent.has_cover, None)
                 break
 
 
@@ -169,13 +172,13 @@ class PaginationTestCase(RemoteTestCase):
         self.torrents = Search(self.url, 'tpb afk')
 
     def test_page_items(self):
-        self.assertEqual(len(list(self.torrents.items())), 30)
+        self.assertEqual(len(list(self.torrents.items())), 66)
 
     def test_multipage_items(self):
         self.torrents.multipage()
         items = list(itertools.islice(self.torrents.items(), 50))
         self.assertEqual(len(items), 50)
-        self.assertEqual(self.torrents.page(), 1)
+        self.assertEqual(self.torrents.page(), 0)
 
     def test_last_page(self):
         class DummyList(List):
@@ -217,7 +220,7 @@ class SearchTestCase(RemoteTestCase):
             self.assertEqual(unicode, type(item.user))
             self.assertTrue(hasattr(item, 'url'))
             # ensure the URL points to the /torrent/ html page
-            self.assertTrue(item.url.path().startswith('/torrent/'))
+            self.assertTrue(item.url.path().startswith('/description.php'))
 
 
 class RecentTestCase(RemoteTestCase):

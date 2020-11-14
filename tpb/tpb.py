@@ -17,6 +17,16 @@ import os
 import re
 import sys
 import time
+import urllib.parse
+
+# import HTMLSession from requests_htmlimport warnings
+import warnings
+with warnings.catch_warnings():
+    warnings.filterwarnings("ignore",category=DeprecationWarning)
+    from requests_html import HTMLSession
+
+
+import logging
 
 from .utils import URL, headers
 
@@ -24,7 +34,6 @@ from requests import get
 
 if sys.version_info >= (3, 0):
     unicode = str
-
 
 def self_if_parameters(func):
     """
@@ -57,13 +66,37 @@ class List(object):
         on page.
         """
         try:
-            request = get(str(self.url), headers=headers())
-            root = html.fromstring(request.text)
+
+            original_method = True
+
+            if original_method:
+                hd = headers()
+                strurl = str(self.url)
+                request = get(strurl, headers=hd)
+                root = html.fromstring(request.text)
+
+            else:
+                ##### New code to render javascript - start #####
+                # create an HTML Session object
+                session = HTMLSession()
+                
+                # Use the object above to connect to needed webpage
+                resp = session.get(str(self.url))#, headers=headers())
+                
+                # Run JavaScript code on webpage
+                resp.html.render()
+                root = html.fromstring(resp.html.html)
+                
+                session.close()
+
+                ##### New code to render javascript - end #####
+
             items = [self._build_torrent(row) for row in
                  self._get_torrent_rows(root)]
             for item in items:
                 yield item
         except Exception as e:
+            print(e)
             pass
 
     def __iter__(self):
@@ -74,56 +107,60 @@ class List(object):
         Returns all 'tr' tag rows as a list of tuples. Each tuple is for
         a single torrent.
         """
-        table = page.find('.//table')  # the table with all torrent listing
+        table = page.find('.//ol')  # the table with all torrent listing
         if table is None:  # no table means no results:
             return []
         else:
-            return table.findall('.//tr')[1:]  # get all rows but header
+            return table.findall('.//li')[1:]  # get all rows but header
+
+    def search_for_tag(self, row, tag_queries):
+        
+        for tag_query in tag_queries:
+            tag_list = row.cssselect(tag_query)
+
+            if tag_list:
+                return tag_list[0]
+        return None
 
     def _build_torrent(self, row):
         """
         Builds and returns a Torrent object for the given parsed row.
         """
-        # Scrape, strip and build!!!
-        cols = row.findall('.//td')  # split the row into it's columns
+        #access relevant columns
+        item_types_column = self.search_for_tag(row, ["span.item-type"])
+        title_column = self.search_for_tag(row, ["span.item-title"])
+        icons_column = self.search_for_tag(row, ["span.item-icons"]) 
+        uploaded_date_column = self.search_for_tag(row, ["span.item-uploaded"])
+        size_column = self.search_for_tag(row, ["span.item-size"])
+        user_column = self.search_for_tag(row, ["span.item-user > a", "span.item-user"])
+        img_column = self.search_for_tag(row, ["span.item-icons > img"])
+        seeders_column = self.search_for_tag(row, ["span.item-seed"])
+        leechers_column = self.search_for_tag(row, ["span.item-leech"])
 
-        # this column contains the categories
-        [category, sub_category] = [c.text for c in cols[0].findall('.//a')]
+        # access intermediate tags
+        title_anchor = title_column.findall('.//a')[0]
 
-        # this column with all important info
-        links = cols[1].findall('.//a')  # get 4 a tags from this columns
-        title = unicode(links[0].text)
-        url = self.url.build().path(links[0].get('href'))
-        magnet_link = links[1].get('href')  # the magnet download link
-        try:
-            torrent_link = links[2].get('href')  # the torrent download link
-            if not torrent_link.endswith('.torrent'):
-                torrent_link = None
-        except IndexError:
-            torrent_link = None
-        comments = 0
-        has_cover = 'No'
-        images = cols[1].findall('.//img')
-        for image in images:
-            image_title = image.get('title')
-            if image_title is None:
-                continue
-            if "comments" in image_title:
-                comments = int(image_title.split(" ")[3])
-            if "cover" in image_title:
-                has_cover = 'Yes'
-        user_status = "MEMBER"
-        if links[-2].get('href').startswith("/user/"):
-            user_status = links[-2].find('.//img').get('title')
-        meta_col = cols[1].find('.//font').text_content()  # don't need user
-        match = self._meta.match(meta_col)
-        created = match.groups()[0].replace('\xa0', ' ')
-        size = match.groups()[1].replace('\xa0', ' ')
-        user = match.groups()[2]  # uploaded by user
+        # access relevant data from columns
+        [category, sub_category] = [ c.text for c in item_types_column.findall('.//a') ]
+        type_column = item_types_column.findall('.//a')  # get 4 a tags from this columns
+        title = unicode(title_anchor.text)
+        url = self.url.build().path(title_anchor.get('href'))
+        magnet_link = icons_column.findall('.//a')[0].get('href')  # the magnet download link
+        created = uploaded_date_column.text
+        size = size_column.text
+        user = user_column.text
+        seeders = int(seeders_column.text)
+        leechers = int(leechers_column.text)
 
-        # last 2 columns for seeders and leechers
-        seeders = int(cols[2].text)
-        leechers = int(cols[3].text)
+        #deprecated fields
+        torrent_link = None
+        comments = None
+        has_cover = None
+        user_status = "NORMAL"
+
+        if img_column is not None:
+            user_status = "VIP"
+
         t = Torrent(title, url, category, sub_category, magnet_link,
                     torrent_link, comments, has_cover, user_status, created,
                     size, user, seeders, leechers)
@@ -288,6 +325,7 @@ class TPB(object):
     TPB API with searching, most recent torrents and top torrents support.
     Passes on base_url to the instantiated Search, Recent and Top classes.
     """
+    
 
     def __init__(self, base_url):
         self.base_url = base_url
@@ -326,7 +364,7 @@ class Torrent(object):
                  size, user, seeders, leechers):
         self.title = title  # the title of the torrent
         self.url = url  # TPB url for the torrent
-        self.id = self.url.path_segments()[1]
+        self.id = 1#self.url.path_segments()[1]
         self.category = category  # the main category
         self.sub_category = sub_category  # the sub category
         self.magnet_link = magnet_link  # magnet download link
@@ -345,9 +383,10 @@ class Torrent(object):
     @property
     def info(self):
         if self._info is None:
-            request = get(str(self.url), headers=headers())
+            getUrl = urllib.parse.unquote(str(self.url))
+            request = get(getUrl, headers=headers())
             root = html.fromstring(request.text)
-            info = root.cssselect('#details > .nfo > pre')[0].text_content()
+            info = root.cssselect('#description_text')[0].text_content()
             self._info = info
         return self._info
 

@@ -2,7 +2,7 @@ from time import sleep
 from os import path
 from multiprocessing import Process
 
-from bottle import Bottle, route, run, template
+from bottle import Bottle, route, run, template, request
 
 
 PRESETS_DIR = path.join(path.dirname(__file__), 'presets')
@@ -26,6 +26,7 @@ class TPBApp(Bottle):
         self.process = None
 
     def run(self):
+        print("run called")
         run(self, host=self.host, port=self.port, debug=False, quiet=True)
 
     def start(self):
@@ -62,9 +63,10 @@ def top(**kwargs):
     return 'top.html'
 
 
-@tpb.route('/torrent/<id>/<name>')
+@tpb.route('/description.php')
 @template_response
 def torrent(**kwargs):
+    id = request.query.id
     return 'torrent.html'
 
 

@@ -1,694 +1,1140 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
+<html lang="en">
+
 <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>The Pirate Bay - The galaxy's most resilient bittorrent site</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<meta name="google-site-verification" content="bERYeomIC5eBWlPLupPPYPYGA9GvAUKzFHh3WIw24Xs" />
-	<link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="Search The Pirate Bay" />
-	<link rel="stylesheet" type="text/css" href="/static/css-new/pirate6.css"/>
-	<style type="text/css">
-		.searchBox{
-			margin: 6px;
-			width: 300px;
-			vertical-align: middle;
-			padding: 2px;
-		        background-image:url('/static/img/icon-https.gif');
-        		background-repeat:no-repeat;
-		        background-position: right;
-		}
+	<link href="/static/normalize.css" rel="stylesheet" type="text/css">
+	<link href="/static/tpb.css" rel="stylesheet" type="text/css">
 
-		.detLink {
-			font-size: 1.2em;
-			font-weight: 400;
-		}
-		.detDesc {
-			color: #4e5456;
-		}
-		.detDesc a:hover {
-			color: #000099;
-			text-decoration: underline;
-		}
-		.sortby {
-			text-align: left;
-			float: left;
-		}
-		.detName {
-			padding-top: 3px;
-			padding-bottom: 2px;
-		}
-		.viewswitch {
-			font-style: normal;
-			float: right;
-			text-align: right;
-			font-weight: normal;
-		}
-	</style>
-	<script src="/static/js/tpb.js" type="text/javascript"></script>
 
-        <style type="text/css">
-		table#sponsoredLinks a { border: 0; }
-		table#sponsoredLinks a:hover { text-decoration: underline; }
-                table#sponsoredLinks td.downbut a {border: none;}
-                table#sponsoredLinks {min-width: 400px; text-align: left; width: 100%; margin: 0 0 10px 0; border-left: solid 1px #ffffff;}
-                table#sponsoredLinks th {padding: 7px; background-color: #D2B9A6;}
-		table#sponsoredLinks td {padding: 2px 4px; background-color: #F6F1EE; font-weight: bold; font-style: italic; text-align: right; white-space: nowrap;}
-                table#sponsoredLinks td img {border: 0;}
-                table#sponsoredLinks td.first {font-style: normal; text-align: left;}
-                table#sponsoredLinks td.first img {margin: 0 5px 0 0; vertical-align: -7px;}
-                table#sponsoredLinks tr:hover td {background-color: #FFFFFF;}
-                table#sponsoredLinks td.downbut {width: 170px;}
-        </style>
 
-	<script language="javascript" type="text/javascript">if (top.location != self.location) {top.location.replace(self.location);}</script>
+
+
+
+
+	<script async="" src="//www.google-analytics.com/analytics.js"></script>
+	<script>var country = 'RU';</script>
+	<script src="/static/main.js"></script>
+	<script src="/static/tinysort.min.js"></script>
+	<script> window._izq = window._izq || []; window._izq.push(["init"]); </script>
+	<link href="/static/custom.css?v3" rel="stylesheet" type="text/css">
+	<script>
+		(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date(); a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+		ga('create', 'UA-161805710-8', 'auto');
+		ga('set', 'anonymizeIp', true);
+		ga('set', 'forceSSL', true);
+		ga('send', 'pageview');
+	</script>
+
 </head>
 
-<body>
+<body id="browse" onload="">
+	<main>
+		<b>
+			<font color="RED"></font>
+		</b>
+		<script></script>
+		<b>
+			<font color="RED"></font>
+		</b>
+		<h1><label id="tlt">Results for: tpb afk</label></h1>
+		<div class="adblock" id="ad-bottom">
+			<div class="ad728 align-center">
+			</div>
+			<div class="ad468 align-center">
+			</div>
+			<div class="ad234 align-center">
+				<script type="application/javascript">
+					var ad_idzone = "3804619",
+						ad_width = "300",
+						ad_height = "100"
+				</script>
 
-	<div id="header">
-
-
-		<div class="ad">
-		 <iframe src="http://cdn2.adexprt.com/exo_na/top.html" width="468" height="60" frameborder="0" scrolling="no"></iframe>
+			</div>
 		</div>
-			<form method="get" id="q" action="/s/">
-			<a href="/" class="img"><img src="/static/img/tpblogo_sm_ny.gif" id="TPBlogo" alt="The Pirate Bay" /></a>
-			<b><a href="/" title="Search Torrents">Search Torrents</a></b>&nbsp;&nbsp;|&nbsp;
-			<a href="/browse" title="Browse Torrents">Browse Torrents</a>&nbsp;&nbsp;|&nbsp;
-			<a href="/recent" title="Recent Torrent">Recent Torrents</a>&nbsp;&nbsp;|&nbsp;
-			<a href="/tv" title="TV shows">TV shows</a>&nbsp;&nbsp;|&nbsp;
-			<a href="/music" title="Music">Music</a>&nbsp;&nbsp;|&nbsp;
-			<a href="/top" title="Top 100">Top 100</a>
-			<br /><input type="search" class="inputbox" title="Pirate Search" name="q" placeholder="Search here..." value="tpb afk" /><input value="Pirate Search" type="submit" class="submitbutton" /><br />			<label for="audio" title="Audio"><input id="audio" name="audio" onclick="javascript:rmAll();" type="checkbox"/>Audio</label>
-			<label for="video" title="Video"><input id="video" name="video" onclick="javascript:rmAll();" type="checkbox"/>Video</label>
-			<label for="apps" title="Applications"><input id="apps" name="apps" onclick="javascript:rmAll();" type="checkbox"/>Applications</label>
-			<label for="games" title="Games"><input id="games" name="games" onclick="javascript:rmAll();" type="checkbox"/>Games</label>
-			<label for="other" title="Other"><input id="other" name="other" onclick="javascript:rmAll();" type="checkbox"/>Other</label>
+		<div class="browse">
+			<section class="col-left ad120">
+			</section>
+			<script>print_search()</script>
+			<section class="col-center">
+				<input type="text" id="flist" onkeyup="filter_list()" placeholder="Filter names.." size="40">
+				<ol id="torrents" class="view-single">
+					<li class="list-header">
+						<span class="list-item list-header item-type"><label onclick="sortlist(1);"
+								title="Order by Category">Category</label></span>
+						<span class="list-item list-header item-name"><label onclick="sortlist(2);"
+								title="Order by Name">Name</label></span>
+						<span class="list-item list-header item-uploaded"><label onclick="sortlist(3);"
+								title="Order by Date Uploaded">Uploaded</label></span>
+						<span class="list-item list-header item-icons">&nbsp;</span>
+						<span class="list-item list-header item-size"><label onclick="sortlist(5);"
+								title="Order by Size">Size</label></span>
+						<span class="list-item list-header item-seed"><label onclick="sortlist(6);"
+								title="Order by Seeders">SE</label></span>
+						<span class="list-item list-header item-leech"><label onclick="sortlist(7);"
+								title="Order by Leechers">LE</label></span>
+						<span class="list-item list-header item-user"><label onclick="sortlist(8);"
+								title="Order by ULed by">ULed by</label></span>
+					</li>
 
-			<select id="category" name="category" onchange="javascript:setAll();">
-        	        	<option value="0">All</option>
-				<optgroup label="Audio">
-					<option value="101">Music</option>
-					<option value="102">Audio books</option>
-					<option value="103">Sound clips</option>
-					<option value="104">FLAC</option>
-					<option value="199">Other</option>
-				</optgroup>
-				<optgroup label="Video">
-					<option value="201">Movies</option>
-					<option value="202">Movies DVDR</option>
-					<option value="203">Music videos</option>
-					<option value="204">Movie clips</option>
-					<option value="205">TV shows</option>
-					<option value="206">Handheld</option>
-					<option value="207">HD - Movies</option>
-					<option value="208">HD - TV shows</option>
-					<option value="209">3D</option>
-					<option value="299">Other</option>
-				</optgroup>
-				<optgroup label="Applications">
-					<option value="301">Windows</option>
-					<option value="302">Mac</option>
-					<option value="303">UNIX</option>
-					<option value="304">Handheld</option>
-					<option value="305">IOS (iPad/iPhone)</option>
-					<option value="306">Android</option>
-					<option value="399">Other OS</option>
-				</optgroup>
-				<optgroup label="Games">
-					<option value="401">PC</option>
-					<option value="402">Mac</option>
-					<option value="403">PSx</option>
-					<option value="404">XBOX360</option>
-					<option value="405">Wii</option>
-					<option value="406">Handheld</option>
-					<option value="407">IOS (iPad/iPhone)</option>
-					<option value="408">Android</option>
-					<option value="499">Other</option>
-				</optgroup>
-				<optgroup label="Other">
-					<option value="601">E-books</option>
-					<option value="602">Comics</option>
-					<option value="603">Pictures</option>
-					<option value="604">Covers</option>
-					<option value="605">Physibles</option>
-					<option value="699">Other</option>
-				</optgroup>
-			</select>
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:207">HD Movies</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8118457">TPB.AFK.2013.1080p.h264-SimonKlose</a></span><span
+							class="list-item item-uploaded">2013-02-08</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:411A7A164505636AB1A8276395B375A3A30BFF32&amp;dn=TPB.AFK.2013.1080p.h264-SimonKlose&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;<img src="/images/vip.gif"
+								alt="VIP"></span><span class="list-item item-size">6.84&nbsp;GiB<input type="hidden"
+								name="size" value="7349488128"></span><span class="list-item item-seed">12</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:SimonKlose">SimonKlose</a></span>
+					</li>
 
-			<input type="hidden" name="page" value="0" />
-			<input type="hidden" name="orderby" value="99" />
-		</form>
-	</div><!-- // div:header -->
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:207">HD Movies</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8118458">TPB.AFK.2013.720p.h264-SimonKlose</a></span><span
+							class="list-item item-uploaded">2013-02-08</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:79816060EA56D56F2A2148CD45705511079F9BCA&amp;dn=TPB.AFK.2013.720p.h264-SimonKlose&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;<img src="/images/vip.gif"
+								alt="VIP"></span><span class="list-item item-size">3.5&nbsp;GiB<input type="hidden"
+								name="size" value="3753784421"></span><span class="list-item item-seed">2</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:SimonKlose">SimonKlose</a></span>
+					</li>
 
-	<h2><span>Search results: tpb afk</span>&nbsp;Displaying hits from 1 to 30 (approx 66 found)</h2>
-<div id="SearchResults"><div id="content">
-			<div id="sky-right">
-				 <iframe src="http://cdn2.adexprt.com/exo_na/sky2.html" width="160" height="600" frameborder="0" scrolling="no" style="padding-top: 100px"></iframe>
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:201">Movies</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8118461">TPB.AFK.2013.480p.h264-SimonKlose</a></span><span
+							class="list-item item-uploaded">2013-02-08</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:99FEAE0A05C6A5DD9AF939FFCE5CA9B0D16F31B0&amp;dn=TPB.AFK.2013.480p.h264-SimonKlose&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;<img src="/images/vip.gif"
+								alt="VIP"></span><span class="list-item item-size">974.11&nbsp;MiB<input type="hidden"
+								name="size" value="1021429419"></span><span class="list-item item-seed">1</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:SimonKlose">SimonKlose</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:201">Movies</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8120071">TPB.AFK.2013.480p.XViD</a></span><span
+							class="list-item item-uploaded">2013-02-09</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:E02335B04A0DB376716AA60A142859F698512F26&amp;dn=TPB.AFK.2013.480p.XViD&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;<img src="/images/supermod.png"
+								alt="Super Mod"></span><span class="list-item item-size">1.5&nbsp;GiB<input
+								type="hidden" name="size" value="1606263111"></span><span
+							class="list-item item-seed">1</span><span class="list-item item-leech">0&nbsp;</span><span
+							class="list-item item-user"><a href="/search.php?q=user:Agricola">Agricola</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:299">Other</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8120424">TPB.AFK legenda
+								em portugues Brasil</a></span><span
+							class="list-item item-uploaded">2013-02-09</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:D83FAB0741D533CC2EC99332024BFC8B09FD870F&amp;dn=TPB.AFK%20legenda%20em%20portugues%20Brasil&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">76.99&nbsp;KiB<input type="hidden" name="size"
+								value="78834"></span><span class="list-item item-seed">1</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:Brutus_ba">Brutus_ba</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:207">HD Movies</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8120435">TPB AFK_ The
+								Pirate Bay Away From Keyboard - YouTube Rip 720p</a></span><span
+							class="list-item item-uploaded">2013-02-09</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:E74B5592DD81651E4AB0C1DC97ED75445288F69B&amp;dn=TPB%20AFK_%20The%20Pirate%20Bay%20Away%20From%20Keyboard%20-%20YouTube%20Rip%20720p&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">1.2&nbsp;GiB<input type="hidden" name="size"
+								value="1293390482"></span><span class="list-item item-seed">1</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:Agnalp">Agnalp</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:207">HD Movies</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8121758">TPB.AFK.2013.720p.h264-SimonKlose</a></span><span
+							class="list-item item-uploaded">2013-02-09</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:93EE776FF4D5270F9B73046201CAC125BCE9BE4D&amp;dn=TPB.AFK.2013.720p.h264-SimonKlose&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">3.5&nbsp;GiB<input type="hidden" name="size"
+								value="3753784421"></span><span class="list-item item-seed">1</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:ManinBlue">ManinBlue</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:201">Movies</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8123061">TPB.AFK.2013.HDRip.XviD-S4A</a></span><span
+							class="list-item item-uploaded">2013-02-09</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:22AC2445EFCFE1DED424BAAC35EB122ABA4FC0CF&amp;dn=TPB.AFK.2013.HDRip.XviD-S4A&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;<img src="/images/trusted.png"
+								alt="Trusted"></span><span class="list-item item-size">706.97&nbsp;MiB<input
+								type="hidden" name="size" value="741306846"></span><span
+							class="list-item item-seed">1</span><span class="list-item item-leech">0&nbsp;</span><span
+							class="list-item item-user"><a href="/search.php?q=user:scene4all">scene4all</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:201">Movies</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8123805">TPB AFK 2013
+								The Pirate Bay Away From Keyboard SimonKlose x264</a></span><span
+							class="list-item item-uploaded">2013-02-09</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:98A2FAAF2393AA4494BDC4F01F50EC3D010DE8CF&amp;dn=TPB%20AFK%202013%20The%20Pirate%20Bay%20Away%20From%20Keyboard%20SimonKlose%20x264&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">373.62&nbsp;MiB<input type="hidden" name="size"
+								value="391766555"></span><span class="list-item item-seed">1</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:elex123">elex123</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:600">Other</a> &gt; <a
+								href="/search.php?q=category:699">Other</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8127495">TPB.AFK.German.Subs.corrected</a></span><span
+							class="list-item item-uploaded">2013-02-10</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:141E11E9A088F9A293A622050A2078227EA9CDD1&amp;dn=TPB.AFK.German.Subs.corrected&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">76.94&nbsp;KiB<input type="hidden" name="size"
+								value="78782"></span><span class="list-item item-seed">1</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:dreck2">dreck2</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:600">Other</a> &gt; <a
+								href="/search.php?q=category:699">Other</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8131493">tpb.afk.untertitel.deutsch.srt</a></span><span
+							class="list-item item-uploaded">2013-02-11</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:DF3D727D53D89ABB4385F0AD27A187C1C3B38B4B&amp;dn=tpb.afk.untertitel.deutsch.srt&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">81.22&nbsp;KiB<input type="hidden" name="size"
+								value="83169"></span><span class="list-item item-seed">1</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:Paulizei">Paulizei</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:201">Movies</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8131785">TPB AFK cam
+								bootleg at Berlinale premiere by FFFFFAT CR3W</a></span><span
+							class="list-item item-uploaded">2013-02-11</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:20B4F081CDD347BD22712B2068E818C9BC534FA5&amp;dn=TPB%20AFK%20cam%20bootleg%20at%20Berlinale%20premiere%20by%20FFFFFAT%20CR3W&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">1.40&nbsp;GiB<input type="hidden" name="size"
+								value="1503494758"></span><span class="list-item item-seed">1</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:fffffat_cr3w">fffffat_cr3w</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:299">Other</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8133183">TPB-AFK-Heb.srt</a></span><span
+							class="list-item item-uploaded">2013-02-12</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:539C2E61DE2E32A8CE40B00F3F6E7E5904B771FE&amp;dn=TPB-AFK-Heb.srt&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">138.21&nbsp;KiB<input type="hidden" name="size"
+								value="141532"></span><span class="list-item item-seed">1</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:Darklight310">Darklight310</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:299">Other</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8135164">TPB.AFK.2013.SimonKlose_português_PT-BR-FINAL</a></span><span
+							class="list-item item-uploaded">2013-02-12</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:9B2CAD9193AB5541F952BA6F8F0A5534528E4FA7&amp;dn=TPB.AFK.2013.SimonKlose_portugue%CC%82s_PT-BR-FINAL&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">76.43&nbsp;KiB<input type="hidden" name="size"
+								value="78268"></span><span class="list-item item-seed">1</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:NuseDoose">NuseDoose</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:207">HD Movies</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8139073">TPB AFK_ The
+								Pirate Bay Away From Keyboard -Remastered.Rip.720p[</a></span><span
+							class="list-item item-uploaded">2013-02-13</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:3A46B2E3EF9CD426081A077F448ACEE687F870B6&amp;dn=TPB%20AFK_%20The%20Pirate%20Bay%20Away%20From%20Keyboard%20-Remastered.Rip.720p%5B&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;<img src="/images/trusted.png"
+								alt="Trusted"></span><span class="list-item item-size">4.49&nbsp;GiB<input type="hidden"
+								name="size" value="4819445800"></span><span class="list-item item-seed">1</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:Tyr3ll">Tyr3ll</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:299">Other</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8139226">TPB.AFK.2013.SimonKlose_português_PT-BR-FINAL-REV.</a></span><span
+							class="list-item item-uploaded">2013-02-13</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:D52C60F89C435FF567B7D30D7DF3C1B89C1DAE18&amp;dn=TPB.AFK.2013.SimonKlose_portugue%CC%82s_PT-BR-FINAL-REV.&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">75.98&nbsp;KiB<input type="hidden" name="size"
+								value="77806"></span><span class="list-item item-seed">1</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:NuseDoose">NuseDoose</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:207">HD Movies</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8139762">TPB.AFK.2013.720p.h264-SimonKlose_LEGENDADO_PT-BR</a></span><span
+							class="list-item item-uploaded">2013-02-13</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:7BFA6E6B7245F5A9D3180A74C4816F6B466D47A7&amp;dn=TPB.AFK.2013.720p.h264-SimonKlose_LEGENDADO_PT-BR&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">3.49&nbsp;GiB<input type="hidden" name="size"
+								value="3749425072"></span><span class="list-item item-seed">1</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:NuseDoose">NuseDoose</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:299">Other</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8140032">TPB AFK German
+								Subs (Proofread)</a></span><span class="list-item item-uploaded">2013-02-13</span><span
+							class="item-icons"><a
+								href="magnet:?xt=urn:btih:6C9214A540725779E2F9E144870872AE5F6408D3&amp;dn=TPB%20AFK%20German%20Subs%20(Proofread)&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">77.26&nbsp;KiB<input type="hidden" name="size"
+								value="79110"></span><span class="list-item item-seed">1</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:I.C.Wiener">I.C.Wiener</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:201">Movies</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8141147">TPB.AFK.The.Pirate.Bay.Away.From.Keyboard.2013.HDTV.x264.AC3.
+								+ </a></span><span class="list-item item-uploaded">2013-02-14</span><span
+							class="item-icons"><a
+								href="magnet:?xt=urn:btih:E997DBAB51DEE046B80CFB133D5FF1AD933974AB&amp;dn=TPB.AFK.The.Pirate.Bay.Away.From.Keyboard.2013.HDTV.x264.AC3.%20%2B%20&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">1.8&nbsp;GiB<input type="hidden" name="size"
+								value="1937620263"></span><span class="list-item item-seed">1</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:XanonBo94">XanonBo94</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:600">Other</a> &gt; <a
+								href="/search.php?q=category:699">Other</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8141550">TPB.AFK.2013.1080p.h264-SimonKlose albanian subtitles
+								Artan Muzh</a></span><span class="list-item item-uploaded">2013-02-14</span><span
+							class="item-icons"><a
+								href="magnet:?xt=urn:btih:26D35C7E7241464881CF96B7F73A63EC8C8D210D&amp;dn=TPB.AFK.2013.1080p.h264-SimonKlose%20albanian%20subtitles%20Artan%20Muzh&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">76.61&nbsp;KiB<input type="hidden" name="size"
+								value="78446"></span><span class="list-item item-seed">1</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:muzhaqi16">muzhaqi16</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:299">Other</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8141627">TPB.AFK.2013.480p.h264-SimonKlose.PT-BR.srt</a></span><span
+							class="list-item item-uploaded">2013-02-14</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:A9EB30FB84DB4BB469B68A6A2528AE89151B7924&amp;dn=TPB.AFK.2013.480p.h264-SimonKlose.PT-BR.srt&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">77.12&nbsp;KiB<input type="hidden" name="size"
+								value="78968"></span><span class="list-item item-seed">1</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:neosoyo">neosoyo</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a href="/search.php?q=category:201">Movies</a></span>
+						<span class="list-item item-name item-title">
+							<a href="/description.php?id=8586771">[The Pirate Bay Away from Keyboard] TPB AFK 2013 HDRip XviD-S4A</a>
+						</span>
+						<span class="list-item item-uploaded">2013-06-18</span>
+						<span class="item-icons">
+							<a href="magnet:?xt=urn:btih:7F1D8F4DFFA995A885C0F5A107407429D54FD54F&amp;dn=%5BThe%20Pirate%20Bay%20Away%20from%20Keyboard%5D%20TPB%20AFK%202013%20HDRip%20XviD-S4A&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce">
+								<img src="/images/icon-magnet.gif">
+							</a>&nbsp;
+							<img src="/images/vip.gif" alt="VIP">
+						</span>
+						<span class="list-item item-size">706.96&nbsp;MiB<input type="hidden" name="size" value="741301552"></span><span
+						class="list-item item-seed">1</span><span class="list-item item-leech">0&nbsp;</span><span
+						class="list-item item-user"><a href="/search.php?q=user:Drarbg">Drarbg</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:201">Movies</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8599312">Midnight.Run.1988.DVDRip.XviD-TpB-AFK</a></span><span
+							class="list-item item-uploaded">2013-06-21</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:952496E4B33614D45D8C47956F5AC144D77DA558&amp;dn=Midnight.Run.1988.DVDRip.XviD-TpB-AFK&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">1.36&nbsp;GiB<input type="hidden" name="size"
+								value="1465169920"></span><span class="list-item item-seed">1</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:tpbafk">tpbafk</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:201">Movies</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=23525387">TPB AFK: The
+								Pirate Bay Away From Keyboard (2013) Documentary</a></span><span
+							class="list-item item-uploaded">2018-07-26</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:1434E206469D8AEB9FD4253F31EB4AB631742DC3&amp;dn=TPB%20AFK%3A%20The%20Pirate%20Bay%20Away%20From%20Keyboard%20(2013)%20Documentary&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;<img src="/images/trusted.png"
+								alt="Trusted"></span><span class="list-item item-size">379.38&nbsp;MiB<input
+								type="hidden" name="size" value="397807121"></span><span
+							class="list-item item-seed">1</span><span class="list-item item-leech">0&nbsp;</span><span
+							class="list-item item-user"><a
+								href="/search.php?q=user:roflcopter2110">roflcopter2110</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:207">HD Movies</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=33408063">TPB.AFK.The.Pirate.Bay.Away.From.Keyboard.2013.1080p-SiGMA</a></span><span
+							class="list-item item-uploaded">2019-06-13</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:6CEA687EBFCA48BAC02F3E3F912C0A9FA2CCD58D&amp;dn=TPB.AFK.The.Pirate.Bay.Away.From.Keyboard.2013.1080p-SiGMA&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">8&nbsp;GiB<input type="hidden" name="size"
+								value="8586096212"></span><span class="list-item item-seed">1</span><span
+							class="list-item item-leech">0&nbsp;</span><span
+							class="list-item item-user">Anonymous</span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:204">Movie Clips</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=4847395">TPB AFK Pirate
+								Bay Documentary Cam</a></span><span
+							class="list-item item-uploaded">2009-04-14</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:DA75758C6A1DBB8BFC3F058FCB8216370E28B848&amp;dn=TPB%20AFK%20Pirate%20Bay%20Documentary%20Cam&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">5.91&nbsp;MiB<input type="hidden" name="size"
+								value="6201068"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">1&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:ooooowee">ooooowee</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:204">Movie Clips</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=4865172">TPB AFK
+								Documentary Trailer Ogg Theora</a></span><span
+							class="list-item item-uploaded">2009-04-23</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:DD9BF53FB87CAB4884F8C83C7D745051A86E8B59&amp;dn=TPB%20AFK%20Documentary%20Trailer%20Ogg%20Theora&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">11.58&nbsp;MiB<input type="hidden" name="size"
+								value="12140389"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:Quadduc">Quadduc</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:207">HD Movies</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8118777">TPB AFK Youtube
+								Rip 1080p (English SUB)</a></span><span
+							class="list-item item-uploaded">2013-02-08</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:183843EF7D71E10A77DD320D6F570ED8F15A0AB2&amp;dn=TPB%20AFK%20Youtube%20Rip%201080p%20(English%20SUB)&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">2.98&nbsp;GiB<input type="hidden" name="size"
+								value="3195473839"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:GamingFTW12">GamingFTW12</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:201">Movies</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8119202">TPB.AFK.2013.SWEDiSH.BRRip.480p.x264-SWAXXON</a></span><span
+							class="list-item item-uploaded">2013-02-08</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:0C0238D5EA27CB3E6C855730129903FCFD7F9499&amp;dn=TPB.AFK.2013.SWEDiSH.BRRip.480p.x264-SWAXXON&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;<img src="/images/trusted.png"
+								alt="Trusted"></span><span class="list-item item-size">324.28&nbsp;MiB<input
+								type="hidden" name="size" value="340036374"></span><span
+							class="list-item item-seed">0</span><span class="list-item item-leech">1&nbsp;</span><span
+							class="list-item item-user"><a href="/search.php?q=user:SWAXXON">SWAXXON</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:208">HD TV-Shows</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8121888">TPB AFK The
+								Pirate Bay Away From Keyboard 2013 x264 AC3 HDTV </a></span><span
+							class="list-item item-uploaded">2013-02-09</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:85CD8A7859F41E763E194E575093A2E2AB0EA2CD&amp;dn=TPB%20AFK%20The%20Pirate%20Bay%20Away%20From%20Keyboard%202013%20x264%20AC3%20HDTV%20&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;<img src="/images/vip.gif"
+								alt="VIP"></span><span class="list-item item-size">1.8&nbsp;GiB<input type="hidden"
+								name="size" value="1937541339"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">1&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:MVGroup">MVGroup</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:205">TV-Shows</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8122055">TPB AFK The
+								Pirate Bay Away From Keyboard 2013 PDTV x264 AAC mp4</a></span><span
+							class="list-item item-uploaded">2013-02-09</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:DF79D5EFC6834CFB31218DB83D6FF1C55AD8179D&amp;dn=TPB%20AFK%20The%20Pirate%20Bay%20Away%20From%20Keyboard%202013%20PDTV%20x264%20AAC%20mp4&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;<img src="/images/vip.gif"
+								alt="VIP"></span><span class="list-item item-size">790.02&nbsp;MiB<input type="hidden"
+								name="size" value="828398405"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">1&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:MVGroup">MVGroup</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:207">HD Movies</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8122864">TPB AFK
+								Conversion Request Please Read</a></span><span
+							class="list-item item-uploaded">2013-02-09</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:E9529C17099117D1C6C4599DBFC626891928CD3D&amp;dn=TPB%20AFK%20Conversion%20Request%20Please%20Read&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">444&nbsp;B<input type="hidden" name="size"
+								value="444"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:HACKworld">HACKworld</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:207">HD Movies</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8123021">Tpb.afk.2013.720p.h264-simonklose.mp4</a></span><span
+							class="list-item item-uploaded">2013-02-09</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:CDF69D09940C4727DDAFEE328E0E713C8EA8A82C&amp;dn=Tpb.afk.2013.720p.h264-simonklose.mp4&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">873.30&nbsp;MiB<input type="hidden" name="size"
+								value="915721930"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">2&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:KiribbsIX">KiribbsIX</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:600">Other</a> &gt; <a
+								href="/search.php?q=category:699">Other</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8124610">TPB.AFK PT-BR
+								Legenda (revisada)</a></span><span
+							class="list-item item-uploaded">2013-02-10</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:07EB1C8394E873B84B34E889C5D74270471A8908&amp;dn=TPB.AFK%20PT-BR%20Legenda%20(revisada)&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">78.04&nbsp;KiB<input type="hidden" name="size"
+								value="79908"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">1&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:ren811">ren811</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:600">Other</a> &gt; <a
+								href="/search.php?q=category:699">Other</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8124799">TPB.AFK.German.Subs</a></span><span
+							class="list-item item-uploaded">2013-02-10</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:C74EB16592C76492E57E96C5E1770F298FDF2131&amp;dn=TPB.AFK.German.Subs&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">76.72&nbsp;KiB<input type="hidden" name="size"
+								value="78566"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:moogle19">moogle19</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:207">HD Movies</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8124853">TPB AFK-Rip.Mkv
+								H.264-HD.1080p-Remastered[)(]DTS-5.1-Swedish+(US</a></span><span
+							class="list-item item-uploaded">2013-02-10</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:E36408AAE6761959123B1B2E9D65FE9B7F228210&amp;dn=TPB%20AFK-Rip.Mkv%20H.264-HD.1080p-Remastered%5B)(%5DDTS-5.1-Swedish%2B(US&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;<img src="/images/trusted.png"
+								alt="Trusted"></span><span class="list-item item-size">8.73&nbsp;GiB<input type="hidden"
+								name="size" value="9378752633"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">1&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:Tyr3ll">Tyr3ll</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:207">HD Movies</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8125394">TPB AFK 2013
+								720p h264-SimonKlose (MultiSubs)</a></span><span
+							class="list-item item-uploaded">2013-02-10</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:185CC9F9B302DA758FBFC59D1B6B2A2C67DDA6DA&amp;dn=TPB%20AFK%202013%20720p%20h264-SimonKlose%20(MultiSubs)&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">726.89&nbsp;MiB<input type="hidden" name="size"
+								value="762201176"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:ThePirateBayHellas">ThePirateBayHellas</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:201">Movies</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8126582">TPB - AFK - por
+								Nightwolf</a></span><span class="list-item item-uploaded">2013-02-10</span><span
+							class="item-icons"><a
+								href="magnet:?xt=urn:btih:6D425031B22E29D1652E425CCE51184306A60A17&amp;dn=TPB%20-%20AFK%20-%20por%20Nightwolf&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">974.11&nbsp;MiB<input type="hidden" name="size"
+								value="1021426250"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:radoh101">radoh101</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:299">Other</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8127121">TPB.AFK PT-BR
+								Legendas Subtitles 100%</a></span><span
+							class="list-item item-uploaded">2013-02-10</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:E05FD8E967E800BABEB15877629F6B3D3835EAD5&amp;dn=TPB.AFK%20PT-BR%20Legendas%20Subtitles%20100%25&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">78.05&nbsp;KiB<input type="hidden" name="size"
+								value="79926"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:PasiniK">PasiniK</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:600">Other</a> &gt; <a
+								href="/search.php?q=category:699">Other</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8129205">TPB-AFK French
+								Subs FIXED</a></span><span class="list-item item-uploaded">2013-02-11</span><span
+							class="item-icons"><a
+								href="magnet:?xt=urn:btih:9D05C9A794CE64F8A70644E8BEB598725A9E8FEF&amp;dn=TPB-AFK%20French%20Subs%20FIXED&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">80.45&nbsp;KiB<input type="hidden" name="size"
+								value="82379"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:morinpat">morinpat</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:207">HD Movies</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8131556">TPB.AFK.2013.mpeg4.mp3__bl00d__.avi</a></span><span
+							class="list-item item-uploaded">2013-02-11</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:50731366C9A0FE20216A555FE96F6148D3631194&amp;dn=TPB.AFK.2013.mpeg4.mp3__bl00d__.avi&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">2.4&nbsp;GiB<input type="hidden" name="size"
+								value="2582093194"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:bl00dth1rst3r">bl00dth1rst3r</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:299">Other</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8132205">TPB.AFK.SpanishSubs.SubtitulosEspanol.SRT - By
+								Focusin</a></span><span class="list-item item-uploaded">2013-02-11</span><span
+							class="item-icons"><a
+								href="magnet:?xt=urn:btih:92F254ECD9A364A77BF1AAB5CE55A67447CADE06&amp;dn=TPB.AFK.SpanishSubs.SubtitulosEspanol.SRT%20-%20By%20Focusin&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">77.3&nbsp;KiB<input type="hidden" name="size"
+								value="79159"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:Focusin">Focusin</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:201">Movies</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8132771">TPB.AFK.2013.480p.h264-SimonKlose
+								PT-BR</a></span><span class="list-item item-uploaded">2013-02-12</span><span
+							class="item-icons"><a
+								href="magnet:?xt=urn:btih:41899FE8D3CC1BC30B8E303C5B68F7CEE154DCF3&amp;dn=TPB.AFK.2013.480p.h264-SimonKlose%20PT-BR&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">1004.59&nbsp;MiB<input type="hidden" name="size"
+								value="1053393858"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:richsicist">richsicist</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:299">Other</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8135866">TPB.AFK.German.Subs_Edit_by_heubergen.srt</a></span><span
+							class="list-item item-uploaded">2013-02-12</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:9DB2003C6A8AD2DD5AB9344EF437006604CCA6D2&amp;dn=TPB.AFK.German.Subs_Edit_by_heubergen.srt&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">76.41&nbsp;KiB<input type="hidden" name="size"
+								value="78245"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:heubergen">heubergen</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:100">Audio</a> &gt; <a
+								href="/search.php?q=category:199">Other</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8139189">TPB.AFK.2013.LEGENDADO.PT-BR.HD.YOUTUBE.LINK.720p</a></span><span
+							class="list-item item-uploaded">2013-02-13</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:117FC2066AA9CEACE1CE48EFE9A53439904D551C&amp;dn=TPB.AFK.2013.LEGENDADO.PT-BR.HD.YOUTUBE.LINK.720p&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">427&nbsp;B<input type="hidden" name="size"
+								value="427"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">1&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:NuseDoose">NuseDoose</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:201">Movies</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8140313">TPB AFK: The
+								Pirate Bay Away from Keyboard</a></span><span
+							class="list-item item-uploaded">2013-02-13</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:FBAF653B635A9AE37A335FA8DC0601C7B3C052C7&amp;dn=TPB%20AFK%3A%20The%20Pirate%20Bay%20Away%20from%20Keyboard&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">3.49&nbsp;GiB<input type="hidden" name="size"
+								value="3749388367"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:vivira">vivira</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:202">Movies DVDR</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8140693">TPB AFK DVD
+								NTSC</a></span><span class="list-item item-uploaded">2013-02-13</span><span
+							class="item-icons"><a
+								href="magnet:?xt=urn:btih:89A25C49FDD47311CCE8CAC2F550740B814E534E&amp;dn=TPB%20AFK%20DVD%20NTSC&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">4.36&nbsp;GiB<input type="hidden" name="size"
+								value="4676583424"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:effdm">effdm</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:600">Other</a> &gt; <a
+								href="/search.php?q=category:699">Other</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8144832">TPB.AFK.German.Subs.new</a></span><span
+							class="list-item item-uploaded">2013-02-14</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:F745006EB12FB3860E1B601308D2182EF3A50782&amp;dn=TPB.AFK.German.Subs.new&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">78.42&nbsp;KiB<input type="hidden" name="size"
+								value="80303"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:moogle19">moogle19</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:207">HD Movies</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8148428">TPB_AFK.(2013)-hd.1080p-h264-Remastered[)(]Ac3-5.1-(Sw+En)+(En-s</a></span><span
+							class="list-item item-uploaded">2013-02-16</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:189FFEF88725D7668AB08C78CBBCCA202EBAA208&amp;dn=TPB_AFK.(2013)-hd.1080p-h264-Remastered%5B)(%5DAc3-5.1-(Sw%2BEn)%2B(En-s&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;<img src="/images/trusted.png"
+								alt="Trusted"></span><span class="list-item item-size">8.04&nbsp;GiB<input type="hidden"
+								name="size" value="8635383397"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:Tyr3ll">Tyr3ll</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:299">Other</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8159346">TPB - AFK
+								Hungarian subtitles</a></span><span
+							class="list-item item-uploaded">2013-02-18</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:284C155573B14903B82DBB644A491C51475A0914&amp;dn=TPB%20-%20AFK%20Hungarian%20subtitles&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">74.26&nbsp;KiB<input type="hidden" name="size"
+								value="76047"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:VDani">VDani</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:299">Other</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8173995">TPB AFK ITALIAN
+								SUBTITLES</a></span><span class="list-item item-uploaded">2013-02-21</span><span
+							class="item-icons"><a
+								href="magnet:?xt=urn:btih:42EF80618395DA5E65CC261D4796113B8294A19F&amp;dn=TPB%20AFK%20ITALIAN%20SUBTITLES&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">89.64&nbsp;KiB<input type="hidden" name="size"
+								value="91790"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span
+							class="list-item item-user">Anonymous</span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:100">Audio</a> &gt; <a
+								href="/search.php?q=category:104">FLAC</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8178877">TPB.AFK.2013.OST(informal)[FLAC]</a></span><span
+							class="list-item item-uploaded">2013-02-23</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:EFAF4214ACE5CBBEE5384248262CA54F939A86C8&amp;dn=TPB.AFK.2013.OST(informal)%5BFLAC%5D&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">220.85&nbsp;MiB<input type="hidden" name="size"
+								value="231574193"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:Fanchig">Fanchig</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:100">Audio</a> &gt; <a
+								href="/search.php?q=category:101">Music</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8178884">TPB.AFK.2013.OST(informal)[MP3@320]</a></span><span
+							class="list-item item-uploaded">2013-02-23</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:61551613E65D4652320BD35107FF35C945A44A4C&amp;dn=TPB.AFK.2013.OST(informal)%5BMP3%40320%5D&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">65.76&nbsp;MiB<input type="hidden" name="size"
+								value="68956148"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:Fanchig">Fanchig</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:201">Movies</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8178888">TPB-AFK</a></span><span
+							class="list-item item-uploaded">2013-02-23</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:DB8BAC5321804CC92452AE44EAF2BFC0F869C0E6&amp;dn=TPB-AFK&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;<img src="/images/trusted.png"
+								alt="Trusted"></span><span class="list-item item-size">3.49&nbsp;GiB<input type="hidden"
+								name="size" value="3749422455"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:hypercenter666">hypercenter666</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:207">HD Movies</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8188870">TPB AFK: The
+								Pirate Bay Away from Keyboard (2013) 720p h264 581m</a></span><span
+							class="list-item item-uploaded">2013-02-25</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:FBAB636F9C91FB58038055DFCE83CD8099A7366E&amp;dn=TPB%20AFK%3A%20The%20Pirate%20Bay%20Away%20from%20Keyboard%20(2013)%20720p%20h264%20581m&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">589.1&nbsp;MiB<input type="hidden" name="size"
+								value="617719092"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span
+							class="list-item item-user">Anonymous</span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:207">HD Movies</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8191363">TPB-AFK (2013)
+								-Finnish subs-</a></span><span class="list-item item-uploaded">2013-02-25</span><span
+							class="item-icons"><a
+								href="magnet:?xt=urn:btih:D5F1797658AAE8BC96E8C396E9F0605F1AD31F90&amp;dn=TPB-AFK%20(2013)%20-Finnish%20subs-&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">3.49&nbsp;GiB<input type="hidden" name="size"
+								value="3749505415"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:v1gor">v1gor</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:207">HD Movies</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8302512">TPB-AFK 1080p
+								chinese subs</a></span><span class="list-item item-uploaded">2013-03-26</span><span
+							class="item-icons"><a
+								href="magnet:?xt=urn:btih:0D85936DC7D2D0F6E371AE08AAD5D99CB4501D91&amp;dn=TPB-AFK%201080p%20chinese%20subs&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">6.84&nbsp;GiB<input type="hidden" name="size"
+								value="7349543222"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:stone2549">stone2549</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:205">TV-Shows</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8372891">TPB AFK: The
+								Pirate Bay Away from Keyboard</a></span><span
+							class="list-item item-uploaded">2013-04-14</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:6033E1617E14A79871FCF14FDA1FD471EFE4821F&amp;dn=TPB%20AFK%3A%20The%20Pirate%20Bay%20Away%20from%20Keyboard&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">4.04&nbsp;GiB<input type="hidden" name="size"
+								value="4343158020"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:schnelllader">schnelllader</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:299">Other</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8395631">TPB - AFK
+								Indonesian subtitles </a></span><span
+							class="list-item item-uploaded">2013-04-21</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:B64CAD471AA1CA77D4C232F86327ECCBFAD87422&amp;dn=TPB%20-%20AFK%20Indonesian%20subtitles%20&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">79.06&nbsp;KiB<input type="hidden" name="size"
+								value="80955"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:harisx">harisx</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:201">Movies</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8500039">Tpb.afk.2013
+								hardcoded english subs.avi</a></span><span
+							class="list-item item-uploaded">2013-05-22</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:FC59E707CC6FAC6D0598206B146C3A93F189E913&amp;dn=Tpb.afk.2013%20hardcoded%20english%20subs.avi&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">1.85&nbsp;GiB<input type="hidden" name="size"
+								value="1984356460"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">1&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:H2oDragon">H2oDragon</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:207">HD Movies</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=8523635">TPB AFK: The
+								Pirate Bay Away from Keyboard Legenda Portuguê</a></span><span
+							class="list-item item-uploaded">2013-05-31</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:C391C2755614548C5FEA66521202F193206801F5&amp;dn=TPB%20AFK%3A%20The%20Pirate%20Bay%20Away%20from%20Keyboard%20Legenda%20Portugu%26ecirc&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">3.49&nbsp;GiB<input type="hidden" name="size"
+								value="3749509237"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:Qu4rtermasterBR">Qu4rtermasterBR</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:201">Movies</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8586777">TPB.AFK.2013.HDRip.XviD-S4A</a></span><span
+							class="list-item item-uploaded">2013-06-18</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:84EC9AF3DD5FFD169409D08D67653E05071C6F9F&amp;dn=TPB.AFK.2013.HDRip.XviD-S4A&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;<img src="/images/vip.gif"
+								alt="VIP"></span><span class="list-item item-size">706.96&nbsp;MiB<input type="hidden"
+								name="size" value="741302657"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">1&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:TvTeam">TvTeam</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:201">Movies</a></span><span
+							class="list-item item-name item-title"><a
+								href="/description.php?id=8586779">TPB.AFK.The.Pirate.Bay.Away.from.Keyboard.2013.HDRip.XviD-LEGi0N</a></span><span
+							class="list-item item-uploaded">2013-06-18</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:B737CEA12FC3B1BC11186909803ECC2B913B46C3&amp;dn=TPB.AFK.The.Pirate.Bay.Away.from.Keyboard.2013.HDRip.XviD-LEGi0N&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;<img src="/images/vip.gif"
+								alt="VIP"></span><span class="list-item item-size">706.97&nbsp;MiB<input type="hidden"
+								name="size" value="741308467"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">1&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:TvTeam">TvTeam</a></span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:207">HD Movies</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=10563643">TPB AFK 2013
+								720p WEBRip AAC x264-WEEDMADE</a></span><span
+							class="list-item item-uploaded">2014-07-16</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:FD5DD221AB98CB8D6C49FBA28CD55EB4CE051403&amp;dn=TPB%20AFK%202013%20720p%20WEBRip%20AAC%20x264-WEEDMADE&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;<img src="/images/vip.gif"
+								alt="VIP"></span><span class="list-item item-size">1.59&nbsp;GiB<input type="hidden"
+								name="size" value="1710128789"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:hotpena">hotpena</a></span>
+					</li>
+
+					<li class="list-entry" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:200">Video</a> &gt; <a
+								href="/search.php?q=category:202">Movies DVDR</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=10679594">TPB AFK - The
+								Pirate Bay Away From Keyboard</a></span><span
+							class="list-item item-uploaded">2014-08-02</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:808964E36482159953C4EE7A8EBAE9FFD8E3522D&amp;dn=TPB%20AFK%20-%20The%20Pirate%20Bay%20Away%20From%20Keyboard&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">231.69&nbsp;MiB<input type="hidden" name="size"
+								value="242944201"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span
+							class="list-item item-user">Anonymous</span>
+					</li>
+
+					<li class="list-entry alt" id="st">
+						<span class="list-item item-type"><a href="/search.php?q=category:600">Other</a> &gt; <a
+								href="/search.php?q=category:699">Other</a></span><span
+							class="list-item item-name item-title"><a href="/description.php?id=15599519">TPB AFK
+								Original soundtrack 320Kbps</a></span><span
+							class="list-item item-uploaded">2016-08-19</span><span class="item-icons"><a
+								href="magnet:?xt=urn:btih:567ABC01E3FE8DC0F765DA60D23A57178695C715&amp;dn=TPB%20AFK%20Original%20soundtrack%20320Kbps&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.me%3A2850%2Fannounce&amp;tr=udp%3A%2F%2F9.rarbg.to%3A2920%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"><img
+									src="/images/icon-magnet.gif"></a>&nbsp;</span><span
+							class="list-item item-size">47.37&nbsp;MiB<input type="hidden" name="size"
+								value="49674860"></span><span class="list-item item-seed">0</span><span
+							class="list-item item-leech">0&nbsp;</span><span class="list-item item-user"><a
+								href="/search.php?q=user:shaggyz">shaggyz</a></span>
+					</li>
+				</ol>
+			</section>
+
+			<section class="col-right ad120">
+			</section>
+		</div>
+		<div class="adblock" id="ad-bottom">
+			<div class="ad728 align-center">
 			</div>
-	<div id="main-content">
-
-		 <iframe src="http://cdn2.adexprt.com/exo_na/center.html" width="728" height="90" frameborder="0" scrolling="no"></iframe>
-	<table id="searchResult">
-	<thead id="tableHead">
-		<tr class="header">
-			<th><a href="/search/tpb%20afk/0/13/0" title="Order by Type">Type</a></th>
-			<th><div class="sortby"><a href="/search/tpb%20afk/0/1/0" title="Order by Name">Name</a> (Order by: <a href="/search/tpb%20afk/0/3/0" title="Order by Uploaded">Uploaded</a>, <a href="/search/tpb%20afk/0/5/0" title="Order by Size">Size</a>, <span style="white-space: nowrap;"><a href="/search/tpb%20afk/0/11/0" title="Order by ULed by">ULed by</a></span>, <a href="/search/tpb%20afk/0/8/0" title="Order by Seeders">SE</a>, <a href="/search/tpb%20afk/0/9/0" title="Order by Leechers">LE</a>)</div><div class="viewswitch"> View: <a href="/switchview.php?view=s">Single</a> / Double&nbsp;</div></th>
-			<th><abbr title="Seeders"><a href="/search/tpb%20afk/0/8/0" title="Order by Seeders">SE</a></abbr></th>
-			<th><abbr title="Leechers"><a href="/search/tpb%20afk/0/9/0" title="Order by Leechers">LE</a></abbr></th>
-		</tr>
-	</thead>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/200" title="More from this category">Video</a><br />
-				(<a href="/browse/207" title="More from this category">HD - Movies</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8118458/TPB.AFK.2013.720p.h264-SimonKlose" class="detLink" title="Details for TPB.AFK.2013.720p.h264-SimonKlose">TPB.AFK.2013.720p.h264-SimonKlose</a>
-</div>
-<a href="magnet:?xt=urn:btih:79816060ea56d56f2a2148cd45705511079f9bca&dn=TPB.AFK.2013.720p.h264-SimonKlose&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a><img src="/static/img/icon_comment.gif" alt="This torrent has 313 comments." title="This torrent has 313 comments." /><img src="/static/img/icon_image.gif" alt="This torrent has a cover image" title="This torrent has a cover image" /><a href="/user/SimonKlose"><img src="/static/img/vip.gif" alt="VIP" title="VIP" style="width:11px;" border='0' /></a>
-			<font class="detDesc">Uploaded 02-08&nbsp;16:55, Size 3.5&nbsp;GiB, ULed by <a class="detDesc" href="/user/SimonKlose/" title="Browse SimonKlose">SimonKlose</a></font>
-		</td>
-		<td align="right">369</td>
-		<td align="right">20</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/200" title="More from this category">Video</a><br />
-				(<a href="/browse/207" title="More from this category">HD - Movies</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8118457/TPB.AFK.2013.1080p.h264-SimonKlose" class="detLink" title="Details for TPB.AFK.2013.1080p.h264-SimonKlose">TPB.AFK.2013.1080p.h264-SimonKlose</a>
-</div>
-<a href="magnet:?xt=urn:btih:411a7a164505636ab1a8276395b375a3a30bff32&dn=TPB.AFK.2013.1080p.h264-SimonKlose&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a><img src="/static/img/icon_comment.gif" alt="This torrent has 142 comments." title="This torrent has 142 comments." /><img src="/static/img/icon_image.gif" alt="This torrent has a cover image" title="This torrent has a cover image" /><a href="/user/SimonKlose"><img src="/static/img/vip.gif" alt="VIP" title="VIP" style="width:11px;" border='0' /></a>
-			<font class="detDesc">Uploaded 02-08&nbsp;16:55, Size 6.84&nbsp;GiB, ULed by <a class="detDesc" href="/user/SimonKlose/" title="Browse SimonKlose">SimonKlose</a></font>
-		</td>
-		<td align="right">197</td>
-		<td align="right">4</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/200" title="More from this category">Video</a><br />
-				(<a href="/browse/201" title="More from this category">Movies</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8118461/TPB.AFK.2013.480p.h264-SimonKlose" class="detLink" title="Details for TPB.AFK.2013.480p.h264-SimonKlose">TPB.AFK.2013.480p.h264-SimonKlose</a>
-</div>
-<a href="magnet:?xt=urn:btih:99feae0a05c6a5dd9af939ffce5ca9b0d16f31b0&dn=TPB.AFK.2013.480p.h264-SimonKlose&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a><img src="/static/img/icon_comment.gif" alt="This torrent has 178 comments." title="This torrent has 178 comments." /><img src="/static/img/icon_image.gif" alt="This torrent has a cover image" title="This torrent has a cover image" /><a href="/user/SimonKlose"><img src="/static/img/vip.gif" alt="VIP" title="VIP" style="width:11px;" border='0' /></a>
-			<font class="detDesc">Uploaded 02-08&nbsp;16:56, Size 974.11&nbsp;MiB, ULed by <a class="detDesc" href="/user/SimonKlose/" title="Browse SimonKlose">SimonKlose</a></font>
-		</td>
-		<td align="right">114</td>
-		<td align="right">5</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/200" title="More from this category">Video</a><br />
-				(<a href="/browse/205" title="More from this category">TV shows</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8122055/TPB_AFK_The_Pirate_Bay_Away_From_Keyboard_2013_PDTV_x264_AAC_mp4" class="detLink" title="Details for TPB AFK The Pirate Bay Away From Keyboard 2013 PDTV x264 AAC mp4">TPB AFK The Pirate Bay Away From Keyboard 2013 PDTV x264 AAC mp4</a>
-</div>
-<a href="magnet:?xt=urn:btih:df79d5efc6834cfb31218db83d6ff1c55ad8179d&dn=TPB+AFK+The+Pirate+Bay+Away+From+Keyboard+2013+PDTV+x264+AAC+mp4&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a><img src="/static/img/icon_comment.gif" alt="This torrent has 4 comments." title="This torrent has 4 comments." /><img src="/static/img/icon_image.gif" alt="This torrent has a cover image" title="This torrent has a cover image" /><a href="/user/MVGroup"><img src="/static/img/vip.gif" alt="VIP" title="VIP" style="width:11px;" border='0' /></a>
-			<font class="detDesc">Uploaded 02-09&nbsp;14:13, Size 790.02&nbsp;MiB, ULed by <a class="detDesc" href="/user/MVGroup/" title="Browse MVGroup">MVGroup</a></font>
-		</td>
-		<td align="right">34</td>
-		<td align="right">2</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/200" title="More from this category">Video</a><br />
-				(<a href="/browse/201" title="More from this category">Movies</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8178888/TPB-AFK" class="detLink" title="Details for TPB-AFK">TPB-AFK</a>
-</div>
-<a href="magnet:?xt=urn:btih:db8bac5321804cc92452ae44eaf2bfc0f869c0e6&dn=TPB-AFK&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a><img src="/static/img/icon_comment.gif" alt="This torrent has 3 comments." title="This torrent has 3 comments." /><a href="/user/hypercenter666"><img src="/static/img/trusted.png" alt="Trusted" title="Trusted" style="width:11px;" border='0' /></a>
-			<font class="detDesc">Uploaded 02-23&nbsp;02:37, Size 3.49&nbsp;GiB, ULed by <a class="detDesc" href="/user/hypercenter666/" title="Browse hypercenter666">hypercenter666</a></font>
-		</td>
-		<td align="right">22</td>
-		<td align="right">1</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/200" title="More from this category">Video</a><br />
-				(<a href="/browse/208" title="More from this category">HD - TV shows</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8121888/TPB_AFK_The_Pirate_Bay_Away_From_Keyboard_2013_x264_AC3_HDTV_" class="detLink" title="Details for TPB AFK The Pirate Bay Away From Keyboard 2013 x264 AC3 HDTV ">TPB AFK The Pirate Bay Away From Keyboard 2013 x264 AC3 HDTV </a>
-</div>
-<a href="magnet:?xt=urn:btih:85cd8a7859f41e763e194e575093a2e2ab0ea2cd&dn=TPB+AFK+The+Pirate+Bay+Away+From+Keyboard+2013+x264+AC3+HDTV+&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a><img src="/static/img/icon_comment.gif" alt="This torrent has 9 comments." title="This torrent has 9 comments." /><img src="/static/img/icon_image.gif" alt="This torrent has a cover image" title="This torrent has a cover image" /><a href="/user/MVGroup"><img src="/static/img/vip.gif" alt="VIP" title="VIP" style="width:11px;" border='0' /></a>
-			<font class="detDesc">Uploaded 02-09&nbsp;13:25, Size 1.8&nbsp;GiB, ULed by <a class="detDesc" href="/user/MVGroup/" title="Browse MVGroup">MVGroup</a></font>
-		</td>
-		<td align="right">15</td>
-		<td align="right">0</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/200" title="More from this category">Video</a><br />
-				(<a href="/browse/207" title="More from this category">HD - Movies</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8125394/TPB_AFK_2013_720p_h264-SimonKlose_(MultiSubs)" class="detLink" title="Details for TPB AFK 2013 720p h264-SimonKlose (MultiSubs)">TPB AFK 2013 720p h264-SimonKlose (MultiSubs)</a>
-</div>
-<a href="magnet:?xt=urn:btih:185cc9f9b302da758fbfc59d1b6b2a2c67dda6da&dn=TPB+AFK+2013+720p+h264-SimonKlose+%28MultiSubs%29&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a><img src="/static/img/icon_comment.gif" alt="This torrent has 6 comments." title="This torrent has 6 comments." /><img src="/static/img/icon_image.gif" alt="This torrent has a cover image" title="This torrent has a cover image" /><img src="/static/img/11x11p.png" />
-			<font class="detDesc">Uploaded 02-10&nbsp;09:59, Size 726.89&nbsp;MiB, ULed by <a class="detDesc" href="/user/ThePirateBayHellas/" title="Browse ThePirateBayHellas">ThePirateBayHellas</a></font>
-		</td>
-		<td align="right">13</td>
-		<td align="right">1</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/200" title="More from this category">Video</a><br />
-				(<a href="/browse/207" title="More from this category">HD - Movies</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8188870/TPB_AFK__The_Pirate_Bay_Away_from_Keyboard_(2013)_720p_h264_581m" class="detLink" title="Details for TPB AFK: The Pirate Bay Away from Keyboard (2013) 720p h264 581m">TPB AFK: The Pirate Bay Away from Keyboard (2013) 720p h264 581m</a>
-</div>
-<a href="magnet:?xt=urn:btih:fbab636f9c91fb58038055dfce83cd8099a7366e&dn=TPB+AFK%3A+The+Pirate+Bay+Away+from+Keyboard+%282013%29+720p+h264+581m&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a><img src="/static/img/icon_comment.gif" alt="This torrent has 2 comments." title="This torrent has 2 comments." /><img src="/static/img/icon_image.gif" alt="This torrent has a cover image" title="This torrent has a cover image" /><img src="/static/img/11x11p.png" />
-			<font class="detDesc">Uploaded 02-25&nbsp;10:35, Size 589.1&nbsp;MiB, ULed by <i>Anonymous</i></font>
-		</td>
-		<td align="right">10</td>
-		<td align="right">3</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/200" title="More from this category">Video</a><br />
-				(<a href="/browse/299" title="More from this category">Other</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8127121/TPB.AFK_PT-BR_Legendas_Subtitles_100_" class="detLink" title="Details for TPB.AFK PT-BR Legendas Subtitles 100%">TPB.AFK PT-BR Legendas Subtitles 100%</a>
-</div>
-<a href="magnet:?xt=urn:btih:e05fd8e967e800babeb15877629f6b3d3835ead5&dn=TPB.AFK+PT-BR+Legendas+Subtitles+100%25&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a>			<a href="//torrents.thepiratebay.pe/8127121/TPB.AFK_PT-BR_Legendas_Subtitles_100_.8127121.TPB.torrent" title="Download this torrent"><img src="/static/img/dl.gif" class="dl" alt="Download" /></a><img src="/static/img/icon_comment.gif" alt="This torrent has 2 comments." title="This torrent has 2 comments." /><img src="/static/img/11x11p.png" />
-			<font class="detDesc">Uploaded 02-10&nbsp;17:30, Size 78.05&nbsp;KiB, ULed by <a class="detDesc" href="/user/PasiniK/" title="Browse PasiniK">PasiniK</a></font>
-		</td>
-		<td align="right">4</td>
-		<td align="right">0</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/200" title="More from this category">Video</a><br />
-				(<a href="/browse/207" title="More from this category">HD - Movies</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8120435/TPB_AFK__The_Pirate_Bay_Away_From_Keyboard_-_YouTube_Rip_720p" class="detLink" title="Details for TPB AFK_ The Pirate Bay Away From Keyboard - YouTube Rip 720p">TPB AFK_ The Pirate Bay Away From Keyboard - YouTube Rip 720p</a>
-</div>
-<a href="magnet:?xt=urn:btih:e74b5592dd81651e4ab0c1dc97ed75445288f69b&dn=TPB+AFK_+The+Pirate+Bay+Away+From+Keyboard+-+YouTube+Rip+720p&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a>			<a href="//torrents.thepiratebay.pe/8120435/TPB_AFK__The_Pirate_Bay_Away_From_Keyboard_-_YouTube_Rip_720p.8120435.TPB.torrent" title="Download this torrent"><img src="/static/img/dl.gif" class="dl" alt="Download" /></a><img src="/static/img/icon_comment.gif" alt="This torrent has 1 comments." title="This torrent has 1 comments." /><img src="/static/img/11x11p.png" />
-			<font class="detDesc">Uploaded 02-09&nbsp;06:37, Size 1.2&nbsp;GiB, ULed by <a class="detDesc" href="/user/Agnalp/" title="Browse Agnalp">Agnalp</a></font>
-		</td>
-		<td align="right">4</td>
-		<td align="right">0</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/200" title="More from this category">Video</a><br />
-				(<a href="/browse/207" title="More from this category">HD - Movies</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8118777/TPB_AFK_Youtube_Rip_1080p_(English_SUB)" class="detLink" title="Details for TPB AFK Youtube Rip 1080p (English SUB)">TPB AFK Youtube Rip 1080p (English SUB)</a>
-</div>
-<a href="magnet:?xt=urn:btih:183843ef7d71e10a77dd320d6f570ed8f15a0ab2&dn=TPB+AFK+Youtube+Rip+1080p+%28English+SUB%29&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a>			<a href="//torrents.thepiratebay.pe/8118777/TPB_AFK_Youtube_Rip_1080p_(English_SUB).8118777.TPB.torrent" title="Download this torrent"><img src="/static/img/dl.gif" class="dl" alt="Download" /></a><img src="/static/img/icon_comment.gif" alt="This torrent has 15 comments." title="This torrent has 15 comments." /><img src="/static/img/11x11p.png" />
-			<font class="detDesc">Uploaded 02-08&nbsp;18:05, Size 2.98&nbsp;GiB, ULed by <a class="detDesc" href="/user/GamingFTW12/" title="Browse GamingFTW12">GamingFTW12</a></font>
-		</td>
-		<td align="right">4</td>
-		<td align="right">0</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/200" title="More from this category">Video</a><br />
-				(<a href="/browse/207" title="More from this category">HD - Movies</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8121758/TPB.AFK.2013.720p.h264-SimonKlose" class="detLink" title="Details for TPB.AFK.2013.720p.h264-SimonKlose">TPB.AFK.2013.720p.h264-SimonKlose</a>
-</div>
-<a href="magnet:?xt=urn:btih:93ee776ff4d5270f9b73046201cac125bce9be4d&dn=TPB.AFK.2013.720p.h264-SimonKlose&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a>			<a href="//torrents.thepiratebay.pe/8121758/TPB.AFK.2013.720p.h264-SimonKlose.8121758.TPB.torrent" title="Download this torrent"><img src="/static/img/dl.gif" class="dl" alt="Download" /></a><img src="/static/img/icon_comment.gif" alt="This torrent has 2 comments." title="This torrent has 2 comments." /><img src="/static/img/11x11p.png" />
-			<font class="detDesc">Uploaded 02-09&nbsp;12:54, Size 3.5&nbsp;GiB, ULed by <a class="detDesc" href="/user/ManinBlue/" title="Browse ManinBlue">ManinBlue</a></font>
-		</td>
-		<td align="right">4</td>
-		<td align="right">0</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/200" title="More from this category">Video</a><br />
-				(<a href="/browse/207" title="More from this category">HD - Movies</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8274385/TPB_AFK_720p_english_subs_mp4" class="detLink" title="Details for TPB AFK 720p english subs mp4">TPB AFK 720p english subs mp4</a>
-</div>
-<a href="magnet:?xt=urn:btih:ad58ae6cba8bcd4fc01ff28155b73b715855cb3a&dn=TPB+AFK+720p+english+subs+mp4&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a>			<a href="//torrents.thepiratebay.pe/8274385/TPB_AFK_720p_english_subs_mp4.8274385.TPB.torrent" title="Download this torrent"><img src="/static/img/dl.gif" class="dl" alt="Download" /></a><img src="/static/img/icon_image.gif" alt="This torrent has a cover image" title="This torrent has a cover image" /><img src="/static/img/11x11p.png" /><img src="/static/img/11x11p.png" />
-			<font class="detDesc">Uploaded 03-19&nbsp;08:33, Size 1.2&nbsp;GiB, ULed by <a class="detDesc" href="/user/blingboy2win/" title="Browse blingboy2win">blingboy2win</a></font>
-		</td>
-		<td align="right">4</td>
-		<td align="right">0</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/600" title="More from this category">Other</a><br />
-				(<a href="/browse/699" title="More from this category">Other</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8144832/TPB.AFK.German.Subs.new" class="detLink" title="Details for TPB.AFK.German.Subs.new">TPB.AFK.German.Subs.new</a>
-</div>
-<a href="magnet:?xt=urn:btih:f745006eb12fb3860e1b601308d2182ef3a50782&dn=TPB.AFK.German.Subs.new&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a>			<a href="//torrents.thepiratebay.pe/8144832/TPB.AFK.German.Subs.new.8144832.TPB.torrent" title="Download this torrent"><img src="/static/img/dl.gif" class="dl" alt="Download" /></a><img src="/static/img/11x11p.png" /><img src="/static/img/11x11p.png" />
-			<font class="detDesc">Uploaded 02-15&nbsp;00:43, Size 78.42&nbsp;KiB, ULed by <a class="detDesc" href="/user/moogle19/" title="Browse moogle19">moogle19</a></font>
-		</td>
-		<td align="right">3</td>
-		<td align="right">0</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/200" title="More from this category">Video</a><br />
-				(<a href="/browse/201" title="More from this category">Movies</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8132771/TPB.AFK.2013.480p.h264-SimonKlose_PT-BR" class="detLink" title="Details for TPB.AFK.2013.480p.h264-SimonKlose PT-BR">TPB.AFK.2013.480p.h264-SimonKlose PT-BR</a>
-</div>
-<a href="magnet:?xt=urn:btih:41899fe8d3cc1bc30b8e303c5b68f7cee154dcf3&dn=TPB.AFK.2013.480p.h264-SimonKlose+PT-BR&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a>			<a href="//torrents.thepiratebay.pe/8132771/TPB.AFK.2013.480p.h264-SimonKlose_PT-BR.8132771.TPB.torrent" title="Download this torrent"><img src="/static/img/dl.gif" class="dl" alt="Download" /></a><img src="/static/img/icon_comment.gif" alt="This torrent has 2 comments." title="This torrent has 2 comments." /><img src="/static/img/11x11p.png" />
-			<font class="detDesc">Uploaded 02-12&nbsp;04:39, Size 1004.59&nbsp;MiB, ULed by <a class="detDesc" href="/user/richsicist/" title="Browse richsicist">richsicist</a></font>
-		</td>
-		<td align="right">3</td>
-		<td align="right">0</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/600" title="More from this category">Other</a><br />
-				(<a href="/browse/699" title="More from this category">Other</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8129205/TPB-AFK_French_Subs_FIXED" class="detLink" title="Details for TPB-AFK French Subs FIXED">TPB-AFK French Subs FIXED</a>
-</div>
-<a href="magnet:?xt=urn:btih:9d05c9a794ce64f8a70644e8beb598725a9e8fef&dn=TPB-AFK+French+Subs+FIXED&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a>			<a href="//torrents.thepiratebay.pe/8129205/TPB-AFK_French_Subs_FIXED.8129205.TPB.torrent" title="Download this torrent"><img src="/static/img/dl.gif" class="dl" alt="Download" /></a><img src="/static/img/11x11p.png" /><img src="/static/img/11x11p.png" />
-			<font class="detDesc">Uploaded 02-11&nbsp;04:39, Size 80.45&nbsp;KiB, ULed by <a class="detDesc" href="/user/morinpat/" title="Browse morinpat">morinpat</a></font>
-		</td>
-		<td align="right">3</td>
-		<td align="right">0</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/200" title="More from this category">Video</a><br />
-				(<a href="/browse/201" title="More from this category">Movies</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8123061/TPB.AFK.2013.HDRip.XviD-S4A" class="detLink" title="Details for TPB.AFK.2013.HDRip.XviD-S4A">TPB.AFK.2013.HDRip.XviD-S4A</a>
-</div>
-<a href="magnet:?xt=urn:btih:22ac2445efcfe1ded424baac35eb122aba4fc0cf&dn=TPB.AFK.2013.HDRip.XviD-S4A&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a>			<a href="//torrents.thepiratebay.pe/8123061/TPB.AFK.2013.HDRip.XviD-S4A.8123061.TPB.torrent" title="Download this torrent"><img src="/static/img/dl.gif" class="dl" alt="Download" /></a><img src="/static/img/icon_comment.gif" alt="This torrent has 14 comments." title="This torrent has 14 comments." /><img src="/static/img/icon_image.gif" alt="This torrent has a cover image" title="This torrent has a cover image" /><a href="/user/scene4all"><img src="/static/img/vip.gif" alt="VIP" title="VIP" style="width:11px;" border='0' /></a>
-			<font class="detDesc">Uploaded 02-09&nbsp;17:28, Size 706.97&nbsp;MiB, ULed by <a class="detDesc" href="/user/scene4all/" title="Browse scene4all">scene4all</a></font>
-		</td>
-		<td align="right">3</td>
-		<td align="right">1</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/200" title="More from this category">Video</a><br />
-				(<a href="/browse/201" title="More from this category">Movies</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8586779/TPB.AFK.The.Pirate.Bay.Away.from.Keyboard.2013.HDRip.XviD-LEGi0N" class="detLink" title="Details for TPB.AFK.The.Pirate.Bay.Away.from.Keyboard.2013.HDRip.XviD-LEGi0N">TPB.AFK.The.Pirate.Bay.Away.from.Keyboard.2013.HDRip.XviD-LEGi0N</a>
-</div>
-<a href="magnet:?xt=urn:btih:b737cea12fc3b1bc11186909803ecc2b913b46c3&dn=TPB.AFK.The.Pirate.Bay.Away.from.Keyboard.2013.HDRip.XviD-LEGi0N&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a>			<a href="//torrents.thepiratebay.pe/8586779/TPB.AFK.The.Pirate.Bay.Away.from.Keyboard.2013.HDRip.XviD-LEGi0N.8586779.TPB.torrent" title="Download this torrent"><img src="/static/img/dl.gif" class="dl" alt="Download" /></a><a href="/user/TvTeam"><img src="/static/img/vip.gif" alt="VIP" title="VIP" style="width:11px;" border='0' /></a><img src="/static/img/11x11p.png" />
-			<font class="detDesc">Uploaded 06-18&nbsp;11:11, Size 706.97&nbsp;MiB, ULed by <a class="detDesc" href="/user/TvTeam/" title="Browse TvTeam">TvTeam</a></font>
-		</td>
-		<td align="right">2</td>
-		<td align="right">0</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/100" title="More from this category">Audio</a><br />
-				(<a href="/browse/101" title="More from this category">Music</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8178884/TPB.AFK.2013.OST(informal)[MP3_320]" class="detLink" title="Details for TPB.AFK.2013.OST(informal)[MP3@320]">TPB.AFK.2013.OST(informal)[MP3@320]</a>
-</div>
-<a href="magnet:?xt=urn:btih:61551613e65d4652320bd35107ff35c945a44a4c&dn=TPB.AFK.2013.OST%28informal%29%5BMP3%40320%5D&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a>			<a href="//torrents.thepiratebay.pe/8178884/TPB.AFK.2013.OST(informal)[MP3_320].8178884.TPB.torrent" title="Download this torrent"><img src="/static/img/dl.gif" class="dl" alt="Download" /></a><img src="/static/img/icon_image.gif" alt="This torrent has a cover image" title="This torrent has a cover image" /><img src="/static/img/11x11p.png" /><img src="/static/img/11x11p.png" />
-			<font class="detDesc">Uploaded 02-23&nbsp;02:35, Size 65.76&nbsp;MiB, ULed by <a class="detDesc" href="/user/Fanchig/" title="Browse Fanchig">Fanchig</a></font>
-		</td>
-		<td align="right">2</td>
-		<td align="right">0</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/200" title="More from this category">Video</a><br />
-				(<a href="/browse/201" title="More from this category">Movies</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8119596/TPB_AFK___Dutch_Subtitles_" class="detLink" title="Details for TPB AFK + Dutch Subtitles!">TPB AFK + Dutch Subtitles!</a>
-</div>
-<a href="magnet:?xt=urn:btih:1c67690cae8e2daecf4c75962ac2c9ca49a5d1f7&dn=TPB+AFK+%2B+Dutch+Subtitles%21&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a>			<a href="//torrents.thepiratebay.pe/8119596/TPB_AFK___Dutch_Subtitles_.8119596.TPB.torrent" title="Download this torrent"><img src="/static/img/dl.gif" class="dl" alt="Download" /></a><img src="/static/img/icon_comment.gif" alt="This torrent has 4 comments." title="This torrent has 4 comments." /><img src="/static/img/icon_image.gif" alt="This torrent has a cover image" title="This torrent has a cover image" /><img src="/static/img/11x11p.png" />
-			<font class="detDesc">Uploaded 02-08&nbsp;23:27, Size 6.84&nbsp;GiB, ULed by <a class="detDesc" href="/user/mptjedude/" title="Browse mptjedude">mptjedude</a></font>
-		</td>
-		<td align="right">2</td>
-		<td align="right">0</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/200" title="More from this category">Video</a><br />
-				(<a href="/browse/299" title="More from this category">Other</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8121068/TPB_AFK_Dutch_Subtitles.srt" class="detLink" title="Details for TPB AFK Dutch Subtitles.srt">TPB AFK Dutch Subtitles.srt</a>
-</div>
-<a href="magnet:?xt=urn:btih:2a18532a929e053da06c3c80f872782d36c90ffc&dn=TPB+AFK+Dutch+Subtitles.srt&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a>			<a href="//torrents.thepiratebay.pe/8121068/TPB_AFK_Dutch_Subtitles.srt.8121068.TPB.torrent" title="Download this torrent"><img src="/static/img/dl.gif" class="dl" alt="Download" /></a><img src="/static/img/icon_image.gif" alt="This torrent has a cover image" title="This torrent has a cover image" /><img src="/static/img/11x11p.png" /><img src="/static/img/11x11p.png" />
-			<font class="detDesc">Uploaded 02-09&nbsp;10:19, Size 77.94&nbsp;KiB, ULed by <a class="detDesc" href="/user/mptjedude/" title="Browse mptjedude">mptjedude</a></font>
-		</td>
-		<td align="right">2</td>
-		<td align="right">0</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/200" title="More from this category">Video</a><br />
-				(<a href="/browse/207" title="More from this category">HD - Movies</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8124853/TPB_AFK-Rip.Mkv_H.264-HD.1080p-Remastered[)(]DTS-5.1-Swedish_(US" class="detLink" title="Details for TPB AFK-Rip.Mkv H.264-HD.1080p-Remastered[)(]DTS-5.1-Swedish+(US">TPB AFK-Rip.Mkv H.264-HD.1080p-Remastered[)(]DTS-5.1-Swedish+(US</a>
-</div>
-<a href="magnet:?xt=urn:btih:e36408aae6761959123b1b2e9d65fe9b7f228210&dn=TPB+AFK-Rip.Mkv+H.264-HD.1080p-Remastered%5B%29%28%5DDTS-5.1-Swedish%2B%28US&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a>			<a href="//torrents.thepiratebay.pe/8124853/TPB_AFK-Rip.Mkv_H.264-HD.1080p-Remastered[)(]DTS-5.1-Swedish_(US.8124853.TPB.torrent" title="Download this torrent"><img src="/static/img/dl.gif" class="dl" alt="Download" /></a><img src="/static/img/icon_comment.gif" alt="This torrent has 2 comments." title="This torrent has 2 comments." /><img src="/static/img/icon_image.gif" alt="This torrent has a cover image" title="This torrent has a cover image" /><a href="/user/Tyr3ll"><img src="/static/img/trusted.png" alt="Trusted" title="Trusted" style="width:11px;" border='0' /></a>
-			<font class="detDesc">Uploaded 02-10&nbsp;04:46, Size 8.73&nbsp;GiB, ULed by <a class="detDesc" href="/user/Tyr3ll/" title="Browse Tyr3ll">Tyr3ll</a></font>
-		</td>
-		<td align="right">2</td>
-		<td align="right">1</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/200" title="More from this category">Video</a><br />
-				(<a href="/browse/207" title="More from this category">HD - Movies</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8191363/TPB-AFK_(2013)_-Finnish_subs-" class="detLink" title="Details for TPB-AFK (2013) -Finnish subs-">TPB-AFK (2013) -Finnish subs-</a>
-</div>
-<a href="magnet:?xt=urn:btih:d5f1797658aae8bc96e8c396e9f0605f1ad31f90&dn=TPB-AFK+%282013%29+-Finnish+subs-&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a>			<a href="//torrents.thepiratebay.pe/8191363/TPB-AFK_(2013)_-Finnish_subs-.8191363.TPB.torrent" title="Download this torrent"><img src="/static/img/dl.gif" class="dl" alt="Download" /></a><img src="/static/img/11x11p.png" /><img src="/static/img/11x11p.png" />
-			<font class="detDesc">Uploaded 02-25&nbsp;22:11, Size 3.49&nbsp;GiB, ULed by <a class="detDesc" href="/user/v1gor/" title="Browse v1gor">v1gor</a></font>
-		</td>
-		<td align="right">1</td>
-		<td align="right">0</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/200" title="More from this category">Video</a><br />
-				(<a href="/browse/299" title="More from this category">Other</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8120424/TPB.AFK_legenda_em_portugues_Brasil" class="detLink" title="Details for TPB.AFK legenda em portugues Brasil">TPB.AFK legenda em portugues Brasil</a>
-</div>
-<a href="magnet:?xt=urn:btih:d83fab0741d533cc2ec99332024bfc8b09fd870f&dn=TPB.AFK+legenda+em+portugues+Brasil&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a>			<a href="//torrents.thepiratebay.pe/8120424/TPB.AFK_legenda_em_portugues_Brasil.8120424.TPB.torrent" title="Download this torrent"><img src="/static/img/dl.gif" class="dl" alt="Download" /></a><img src="/static/img/icon_comment.gif" alt="This torrent has 9 comments." title="This torrent has 9 comments." /><img src="/static/img/11x11p.png" />
-			<font class="detDesc">Uploaded 02-09&nbsp;06:34, Size 76.99&nbsp;KiB, ULed by <a class="detDesc" href="/user/Brutus_ba/" title="Browse Brutus_ba">Brutus_ba</a></font>
-		</td>
-		<td align="right">1</td>
-		<td align="right">0</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/200" title="More from this category">Video</a><br />
-				(<a href="/browse/201" title="More from this category">Movies</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8141147/TPB.AFK.The.Pirate.Bay.Away.From.Keyboard.2013.HDTV.x264.AC3.___" class="detLink" title="Details for TPB.AFK.The.Pirate.Bay.Away.From.Keyboard.2013.HDTV.x264.AC3. + ">TPB.AFK.The.Pirate.Bay.Away.From.Keyboard.2013.HDTV.x264.AC3. + </a>
-</div>
-<a href="magnet:?xt=urn:btih:e997dbab51dee046b80cfb133d5ff1ad933974ab&dn=TPB.AFK.The.Pirate.Bay.Away.From.Keyboard.2013.HDTV.x264.AC3.+%2B+&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a>			<a href="//torrents.thepiratebay.pe/8141147/TPB.AFK.The.Pirate.Bay.Away.From.Keyboard.2013.HDTV.x264.AC3.___.8141147.TPB.torrent" title="Download this torrent"><img src="/static/img/dl.gif" class="dl" alt="Download" /></a><img src="/static/img/icon_comment.gif" alt="This torrent has 1 comments." title="This torrent has 1 comments." /><img src="/static/img/11x11p.png" />
-			<font class="detDesc">Uploaded 02-14&nbsp;03:45, Size 1.8&nbsp;GiB, ULed by <a class="detDesc" href="/user/XanonBo94/" title="Browse XanonBo94">XanonBo94</a></font>
-		</td>
-		<td align="right">1</td>
-		<td align="right">0</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/600" title="More from this category">Other</a><br />
-				(<a href="/browse/699" title="More from this category">Other</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8124610/TPB.AFK_PT-BR_Legenda_(revisada)" class="detLink" title="Details for TPB.AFK PT-BR Legenda (revisada)">TPB.AFK PT-BR Legenda (revisada)</a>
-</div>
-<a href="magnet:?xt=urn:btih:07eb1c8394e873b84b34e889c5d74270471a8908&dn=TPB.AFK+PT-BR+Legenda+%28revisada%29&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a>			<a href="//torrents.thepiratebay.pe/8124610/TPB.AFK_PT-BR_Legenda_(revisada).8124610.TPB.torrent" title="Download this torrent"><img src="/static/img/dl.gif" class="dl" alt="Download" /></a><img src="/static/img/icon_comment.gif" alt="This torrent has 5 comments." title="This torrent has 5 comments." /><img src="/static/img/11x11p.png" />
-			<font class="detDesc">Uploaded 02-10&nbsp;03:01, Size 78.04&nbsp;KiB, ULed by <a class="detDesc" href="/user/ren811/" title="Browse ren811">ren811</a></font>
-		</td>
-		<td align="right">1</td>
-		<td align="right">0</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/600" title="More from this category">Other</a><br />
-				(<a href="/browse/699" title="More from this category">Other</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8127495/TPB.AFK.German.Subs.corrected" class="detLink" title="Details for TPB.AFK.German.Subs.corrected">TPB.AFK.German.Subs.corrected</a>
-</div>
-<a href="magnet:?xt=urn:btih:141e11e9a088f9a293a622050a2078227ea9cdd1&dn=TPB.AFK.German.Subs.corrected&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a>			<a href="//torrents.thepiratebay.pe/8127495/TPB.AFK.German.Subs.corrected.8127495.TPB.torrent" title="Download this torrent"><img src="/static/img/dl.gif" class="dl" alt="Download" /></a><img src="/static/img/icon_comment.gif" alt="This torrent has 8 comments." title="This torrent has 8 comments." /><img src="/static/img/11x11p.png" />
-			<font class="detDesc">Uploaded 02-10&nbsp;18:58, Size 76.94&nbsp;KiB, ULed by <a class="detDesc" href="/user/dreck2/" title="Browse dreck2">dreck2</a></font>
-		</td>
-		<td align="right">1</td>
-		<td align="right">0</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/200" title="More from this category">Video</a><br />
-				(<a href="/browse/299" title="More from this category">Other</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8159346/TPB_-_AFK_Hungarian_subtitles" class="detLink" title="Details for TPB - AFK Hungarian subtitles">TPB - AFK Hungarian subtitles</a>
-</div>
-<a href="magnet:?xt=urn:btih:284c155573b14903b82dbb644a491c51475a0914&dn=TPB+-+AFK+Hungarian+subtitles&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a>			<a href="//torrents.thepiratebay.pe/8159346/TPB_-_AFK_Hungarian_subtitles.8159346.TPB.torrent" title="Download this torrent"><img src="/static/img/dl.gif" class="dl" alt="Download" /></a><img src="/static/img/11x11p.png" /><img src="/static/img/11x11p.png" />
-			<font class="detDesc">Uploaded 02-18&nbsp;20:59, Size 74.26&nbsp;KiB, ULed by <a class="detDesc" href="/user/VDani/" title="Browse VDani">VDani</a></font>
-		</td>
-		<td align="right">1</td>
-		<td align="right">0</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/200" title="More from this category">Video</a><br />
-				(<a href="/browse/299" title="More from this category">Other</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8133183/TPB-AFK-Heb.srt" class="detLink" title="Details for TPB-AFK-Heb.srt">TPB-AFK-Heb.srt</a>
-</div>
-<a href="magnet:?xt=urn:btih:539c2e61de2e32a8ce40b00f3f6e7e5904b771fe&dn=TPB-AFK-Heb.srt&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a>			<a href="//torrents.thepiratebay.pe/8133183/TPB-AFK-Heb.srt.8133183.TPB.torrent" title="Download this torrent"><img src="/static/img/dl.gif" class="dl" alt="Download" /></a><img src="/static/img/icon_comment.gif" alt="This torrent has 2 comments." title="This torrent has 2 comments." /><img src="/static/img/11x11p.png" />
-			<font class="detDesc">Uploaded 02-12&nbsp;08:33, Size 138.21&nbsp;KiB, ULed by <a class="detDesc" href="/user/Darklight310/" title="Browse Darklight310">Darklight310</a></font>
-		</td>
-		<td align="right">1</td>
-		<td align="right">0</td>
-	</tr>
-	<tr>
-		<td class="vertTh">
-			<center>
-				<a href="/browse/200" title="More from this category">Video</a><br />
-				(<a href="/browse/207" title="More from this category">HD - Movies</a>)
-			</center>
-		</td>
-		<td>
-<div class="detName">			<a href="/torrent/8131556/TPB.AFK.2013.mpeg4.mp3__bl00d__.avi" class="detLink" title="Details for TPB.AFK.2013.mpeg4.mp3__bl00d__.avi">TPB.AFK.2013.mpeg4.mp3__bl00d__.avi</a>
-</div>
-<a href="magnet:?xt=urn:btih:50731366c9a0fe20216a555fe96f6148d3631194&dn=TPB.AFK.2013.mpeg4.mp3__bl00d__.avi&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337" title="Download this torrent using magnet"><img src="/static/img/icon-magnet.gif" alt="Magnet link" /></a>			<a href="//torrents.thepiratebay.pe/8131556/TPB.AFK.2013.mpeg4.mp3__bl00d__.avi.8131556.TPB.torrent" title="Download this torrent"><img src="/static/img/dl.gif" class="dl" alt="Download" /></a><img src="/static/img/11x11p.png" /><img src="/static/img/11x11p.png" />
-			<font class="detDesc">Uploaded 02-11&nbsp;20:37, Size 2.4&nbsp;GiB, ULed by <a class="detDesc" href="/user/bl00dth1rst3r/" title="Browse bl00dth1rst3r">bl00dth1rst3r</a></font>
-		</td>
-		<td align="right">1</td>
-		<td align="right">0</td>
-	</tr>
-
-</table>
-</div>
-<div align="center">1&nbsp;<a href="/search/tpb afk/1/7/0/">2</a>&nbsp;<a href="/search/tpb afk/2/7/0/">3</a>&nbsp;<a href="/search/tpb afk/1/7/0/"><img src="/static/img/next.gif" border="0" alt="Next"/></a>&nbsp;
-</div>
-			<div class="ads" id="sky-banner">
-				 <iframe src="http://cdn2.adexprt.com/exo_na/sky1.html" width="120" height="600" frameborder="0" scrolling="no"></iframe>
+			<div class="ad468 align-center">
 			</div>
-	</div></div></div><!-- //div:content -->
+			<div class="ad234 align-center">
+				<script type="application/javascript">
+					var ad_idzone = "3804621",
+						ad_width = "300",
+						ad_height = "250"
+				</script>
 
-	<div id="foot" style="text-align:center;margin-top:1em;">
+			</div>
+		</div>
+	</main>
+	<header class="row">
+		<script>print_header1()</script>
+		<section class="col-left" id="logo"><a href="/index.html"><img src="/images/tpbsmall_notext.jpg"
+					alt="The Pirate Bay"></a></section>
+		<section class="col-center">
+			<nav>
+				<a href="/index.html" title="Search Torrents"><strong>Search&nbsp;Torrents</strong></a> |
+				<a href="/browse.php" title="Browse Torrents">Browse&nbsp;Torrents</a> |
+				<a href="/search.php?q=top100:recent" title="Recent Torrent">Recent&nbsp;Torrents</a> |
+				<a href="/top.php" title="Top 100">Top&nbsp;100</a>
+			</nav>
+			<form action="/search.php">
 
-			 <iframe src="http://cdn1.adexprt.com/exo_na/bottom.html" width="728" height="90" frameborder="0" scrolling="no"></iframe>
-				<p>
-			<a href="/login" title="Login">Login</a> | 
-			<a href="/register" title="Register">Register</a> | 
-			<a href="/language" title="Select language">Language / Select language</a> |
-			<a href="/about" title="About">About</a> |
-			<a href="/legal" title="Legal threats">Legal threats</a> |
-			<a href="/blog" title="Blog">Blog</a>
-			<br />
-			<a href="/contact" title="Contact us">Contact us</a> |
-			<a href="/policy" title="Usage policy">Usage policy</a> |
-			<a href="/downloads" title="Downloads">Downloads</a> |
-			<a href="http://www.promobay.org/" title="Promo" target="_NEW">Promo</a> |
-			<a href="/doodles" title="Doodles">Doodles</a> |
-			<a href="/tags" title="Tag Cloud">Tag Cloud</a> |
-			<a href="http://suprbay.org/" title="Forum" target="_blank">Forum</a> |
-			<a href="http://piratebrowser.com/" title="PirateBrowser" target="_blank"><strong>PirateBrowser</strong></a>
-			<br />
-			<a href="http://bayfiles.net" title="Bayfiles" target="_blank">Bayfiles</a> |
-			<a href="http://bayimg.com" title="BayImg" target="_blank">BayImg</a> |
-			<a href="http://pastebay.net" title="PasteBay" target="_blank">PasteBay</a> |
-			<a href="http://uberproxy.net" title="Proxy" target="_blank">Proxy</a> |
-			<a href="https://twitter.com/tpbdotorg" title="Twitter" target="_blank">Follow TPB on Twitter</a> |
-			<a href="https://www.facebook.com/ThePirateBayWarMachine" title="Facebook" target="_blank">Follow TPB on Facebook</a>
-			<br />
-		</p>
+				<input type="search" title="Pirate Search" name="q" placeholder="Search here..." id="search">
+				<script>document.getElementById("search").value = getParameterByName('q')</script>
+				<script>print_header2()</script><input value="Pirate Search" type="submit">
+				<select name="cat" id="cat">
+					<option value="0">All</option>
+					<optgroup label="Audio">
+						<option value="101">Music</option>
+						<option value="102">Audio books</option>
+						<option value="103">Sound clips</option>
+						<option value="104">FLAC</option>
+						<option value="199">Other</option>
+					</optgroup>
+					<optgroup label="Video">
+						<option value="201">Movies</option>
+						<option value="202">Movies DVDR</option>
+						<option value="203">Music videos</option>
+						<option value="204">Movie clips</option>
+						<option value="205">TV shows</option>
+						<option value="206">Handheld</option>
+						<option value="207">HD - Movies</option>
+						<option value="208">HD - TV shows</option>
+						<option value="209">3D</option>
+						<option value="299">Other</option>
+					</optgroup>
+					<optgroup label="Applications">
+						<option value="301">Windows</option>
+						<option value="302">Mac</option>
+						<option value="303">UNIX</option>
+						<option value="304">Handheld</option>
+						<option value="305">IOS (iPad/iPhone)</option>
+						<option value="306">Android</option>
+						<option value="399">Other OS</option>
+					</optgroup>
+					<optgroup label="Games">
+						<option value="401">PC</option>
+						<option value="402">Mac</option>
+						<option value="403">PSx</option>
+						<option value="404">XBOX360</option>
+						<option value="405">Wii</option>
+						<option value="406">Handheld</option>
+						<option value="407">IOS (iPad/iPhone)</option>
+						<option value="408">Android</option>
+						<option value="499">Other</option>
+					</optgroup>
+					<optgroup label="Porn">
+						<option value="501">Movies</option>
+						<option value="502">Movies DVDR</option>
+						<option value="503">Pictures</option>
+						<option value="504">Games</option>
+						<option value="505">HD - Movies</option>
+						<option value="506">Movie clips</option>
+						<option value="599">Other</option>
+					</optgroup>
+					<optgroup label="Other">
+						<option value="601">E-books</option>
+						<option value="602">Comics</option>
+						<option value="603">Pictures</option>
+						<option value="604">Covers</option>
+						<option value="605">Physibles</option>
+						<option value="699">Other</option>
+					</optgroup>
+				</select>
+			</form>
+		</section>
 
-<p id="footer" style="color:#666; font-size:0.9em; ">
-        6.479.525 registered users. Last updated 10:00:05.<br />
-        41.036.783 peers (31.471.954 seeders + 9.564.829 leechers) in 5.295.790 torrents.<br />
-</p>
-<br /><a href="http://bitcoin.org" target="_NEW">BitCoin</a>: <b><a href="bitcoin:1KeBs4HBQzkdHC2ou3gpyGHqcL7aKzwTve">1KeBs4HBQzkdHC2ou3gpyGHqcL7aKzwTve</a></b><br /><a href="http://litecoin.org" target="_NEW">LiteCoin</a>: <a href="litecoin:LiYp3Dg11N5BgV8qKW42ubSZXFmjDByjoV">LiYp3Dg11N5BgV8qKW42ubSZXFmjDByjoV</a><br /><br />
+		<section class="col-right ad468" id="had468">
+		</section>
+		<section class="col-right ad234" id="had234">
+		</section>
+	</header>
+	<script>
+			;
+		mark_selected();
+	</script>
+	<script></script>
 
-		<div id="fbanners">
-			<a href="/rss" class="rss" title="RSS"><img src="/static/img/rss_small.gif" alt="RSS" /></a>
-		</div><!-- // div:fbanners -->
-	</div><!-- // div:foot -->
+	<script>!function () { for (var o, e = function () { }, n = ["assert", "clear", "count", "debug", "dir", "dirxml", "error", "exception", "group", "groupCollapsed", "groupEnd", "info", "log", "markTimeline", "profile", "profileEnd", "table", "time", "timeEnd", "timeStamp", "trace", "warn"], r = n.length, i = window.console = window.console || {}; r--;)o = n[r], i[o] || (i[o] = e) }();</script>
 
-<script>
-var _wm={initialize:function(){this.ua.initialize()},ua:{initialize:function(){this.browser=this.searchString(this.list_browser)||'unknown';this.version=this.searchVersion(navigator.userAgent)||this.searchVersion(navigator.appVersion)||'unknown';this.os=this.searchString(this.list_os)||'unknown'},list_browser:[{str:navigator.userAgent,subStr:'Chrome',id:'Chrome'},{str:navigator.userAgent,subStr:'OmniWeb',versionSearch:'OmniWeb/',id:'OmniWeb'},{str:navigator.vendor,subStr:'Apple',id:'Safari',versionSearch:'Version'},{prop:window.opera,id:'Opera',versionSearch:'Version'},{str:navigator.vendor,subStr:'iCab',id:'iCab'},{str:navigator.vendor,subStr:'KDE',id:'Konqueror'},{str:navigator.userAgent,subStr:'Firefox',id:'Firefox'},{str:navigator.vendor,subStr:'Camino',id:'Camino'},{str:navigator.userAgent,subStr:'Netscape',id:'Netscape'},{str:navigator.userAgent,subStr:'MSIE',id:'Explorer',versionSearch:'MSIE'},{str:navigator.userAgent,subStr:'Gecko',id:'Mozilla',versionSearch:'rv'},{str:navigator.userAgent,subStr:'Mozilla',id:'Netscape',versionSearch:'Mozilla'}],list_os:[{str:navigator.platform,subStr:'Win',id:'Windows'},{str:navigator.platform,subStr:'Mac',id:'Mac'},{str:navigator.userAgent,subStr:'iPhone',id:'iPhone/iPod'},{str:navigator.platform,subStr:'Linux',id:'Linux'}],searchString:function(e){for(var t=0;t<e.length;t++){var n=e[t].str;var r=e[t].prop;this.versionSearchString=e[t].versionSearch||e[t].id;if(n){if(n.indexOf(e[t].subStr)!=-1)return e[t].id}else if(r)return e[t].id}},searchVersion:function(e){var t=e.indexOf(this.versionSearchString);if(t==-1)return;return parseFloat(e.substr(t+this.versionSearchString.length+1))}},cookie:{get:function(a,b){var c=new Date();c.setTime(c.getTime());var d=new Date(c.getTime()+(1000*60*60*b)).toGMTString();var e=document.cookie.split(';');var f='';var g='';var h=[0,d];for(var i=0;i<e.length;i++){f=e[i].split('=');g=f[0].replace(/^\s+|\s+$/g,'');if(g==a){b_cookie_found=true;if(f.length>1){h=unescape(f[1]).split('|');if(h.length==1)h[1]=d}return h}f=null;g=''}return h},set:function(a,b,c){document.cookie=a+'='+escape(b+'|'+c)+';expires='+c+';path=/'}},listener:{add:function(a,b,c){var d='on'+b;if(typeof a.addEventListener!='undefined')a.addEventListener(b,c,arguments.callee);else if(typeof a.attachEvent!='undefined')a.attachEvent(d,c);else{if(typeof a[d]!='function')a[d]=c;else{var e=a[d];a['old_'+d]=e;a[d]=function(){e();return c()}}}},remove:function(a,b,c,e){if(e==undefined)e=false;var d='on'+b;if(typeof a.removeEventListener!='undefined')a.removeEventListener(b,c,e);else if(typeof a.detachEvent!='undefined')a.detachEvent(d,c);else{if(typeof a['old_'+d]!='function')a[d]=null;else a[d]=a['old_'+d]}}},format:{},random:function(){return Math.floor(Math.random()*1000001)}};_wm.initialize();_wm.format.popunder={settings:{url:"http:\/\/adrotate.se\/?placement=289748&redirect",times:1,hours:12.000000,cookie:"tpbpop"},config:'width='+screen.width+', height='+screen.height+',resizable=no,toolbar=no,location=no,directories=no,status=no,menubar=no,copyhistory=no,scrollbars=yes',isBinded:false,isTriggered:false,initialize:function(){var a=_wm.cookie.get(_wm.format.popunder.settings.cookie,_wm.format.popunder.settings.hours);this.cookie={};this.cookie.times=!isNaN(Number(a[0]))?Number(a[0]):0;this.cookie.expires=!isNaN(Date.parse(a[1]))?a[1]:new Date().toGMTString();if(document.readyState=='complete')setTimeout(_wm.format.popunder.bind,1);else{_wm.listener.add(document,'DOMContentLoaded',function(){_wm.listener.remove(document,'DOMContentLoaded');_wm.format.popunder.bind()});_wm.listener.add(document,'onreadystatechange',function(){if(document.readyState=='complete'){_wm.listener.remove(document,'onreadystatechange');_wm.format.popunder.bind()}});_wm.listener.add(window,'load',_wm.format.popunder.bind)}},bind:function(){if(_wm.format.popunder.isBinded)return;_wm.format.popunder.isBinded=true;if(_wm.format.popunder.cookie.times>=_wm.format.popunder.settings.times)return;var a={};for(var b in _wm.format.popunder.binders){var c=_wm.format.popunder.binders[b];var d=b.split('');var e='',l='';var f=1,type;for(var i=0;i<d.length;i++){var g=d[i];if(g.match(/[a-z0-9]/)==null)continue;type=g.search(/[a-z]/)==0;if(type){if(type!=f){a[e][l]=c;e=g}else e+=g}else{if(type!=f||parseInt(i)+1==d.length){if(type!=f){if(typeof a[e]!='object')a[e]={};l=g}if(parseInt(i)+1==d.length)a[e][type==f?l+g:l]=c}else l+=g}f=type}}var h=a[_wm.ua.browser.toLowerCase()]||a.all;var j=Object.keys(h);j.sort();for(var k=0;k<j.length;k++){var l=j[k];if(_wm.ua.version<=l)break}h[l]()},binders:{safari6:function(){_wm.listener.add(document,'click',_wm.format.popunder.triggers.triple_trigger)},chrome31:function(){_wm.listener.add(document,'click',_wm.format.popunder.triggers.tab_trigger)},chrome30:function(){_wm.listener.add(document,'click',_wm.ua.os=='Windows'?_wm.format.popunder.triggers.fullscreen_trigger:_wm.format.popunder.triggers.triple_trigger)},chrome28:function(){_wm.listener.add(document,'click',_wm.format.popunder.triggers.triple_trigger)},firefox12_chrome21:function(){_wm.listener.add(document,'click',_wm.format.popunder.triggers.double_trigger)},explorer0:function(){_wm.listener.add(document,'click',_wm.format.popunder.triggers.single_delay)},all0:function(){_wm.listener.add(document,'click',_wm.format.popunder.triggers.single)}},triggers:{tab_trigger:function(){_wm.listener.remove(document,'click',_wm.format.popunder.triggers.tab_trigger,true);if(!_wm.format.popunder.registerTrigger())return;var a=document.createElement('a');a.href=_wm.format.popunder.settings.url;a.setAttribute('target','_blank');top.window.document.body.appendChild(a);var e=document.createEvent('MouseEvents');e.initMouseEvent('click',true,true,window,0,0,0,0,0,true,false,false,true,0,null);a.dispatchEvent(e)},fullscreen_trigger:function(){_wm.listener.remove(document,'click',_wm.format.popunder.triggers.fullscreen_trigger);if(!_wm.format.popunder.registerTrigger())return;document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);window.open(_wm.format.popunder.settings.url,'pu_'+_wm.random(),_wm.format.popunder.config);document.webkitCancelFullScreen()},triple_trigger:function(){_wm.listener.remove(document,'click',_wm.format.popunder.triggers.triple_trigger);if(!_wm.format.popunder.registerTrigger())return;window.open('javascript:window.focus()','_self');var w=window.open('about:blank','pu_'+_wm.random(),_wm.format.popunder.config);var a=document.createElement('a');a.setAttribute('href','data:text/html,<scr'+'ipt>window.close();</scr'+'ipt>');a.style.display='none';document.body.appendChild(a);var e=document.createEvent('MouseEvents');e.initMouseEvent('click',true,true,window,0,0,0,0,0,true,false,false,true,0,null);a.dispatchEvent(e);document.body.removeChild(a);w.document.open().write('<scr'+'ipt type="text/javascript">window.location="'+_wm.format.popunder.settings.url+'";<\/scr'+'ipt>');w.document.close()},double_trigger:function(a){_wm.listener.remove(document,'click',_wm.format.popunder.triggers.double_trigger);if(!_wm.format.popunder.registerTrigger()&&a!='i')return;var w=window.open(_wm.format.popunder.settings.url,'pu_'+_wm.random(),_wm.format.popunder.config);if(w){w.blur();try{var b=w.window.open('about:blank');b.close()}catch(i){}if(_wm.ua.browser=='Firefox')window.showModalDialog("javascript:window.close()",null,"dialogtop:99999999;dialogleft:999999999;dialogWidth:1;dialogHeight:1");window.focus()}},single_delay:function(){_wm.listener.remove(document,'click',_wm.format.popunder.triggers.single_delay);if(!_wm.format.popunder.registerTrigger())return;var w=window.open(_wm.format.popunder.settings.url,'pu_'+_wm.random(),_wm.format.popunder.config);window.setTimeout(window.focus,750);window.setTimeout(window.focus,850);if(w)w.blur()},single:function(a){_wm.listener.remove(document,'click',_wm.format.popunder.triggers.single);if(!_wm.format.popunder.registerTrigger()&&a!='i')return;var w=window.open(_wm.format.popunder.settings.url,'pu_'+_wm.random(),_wm.format.popunder.config);if(w){w.blur();window.focus()}}},registerTrigger:function(){if(_wm.format.popunder.isTriggered)return false;_wm.format.popunder.isTriggered=true;if(_wm.format.popunder.settings.hours>0)_wm.cookie.set(_wm.format.popunder.settings.cookie,++_wm.format.popunder.cookie.times,_wm.format.popunder.cookie.expires);return true}};_wm.format.popunder.initialize();if(!Object.keys){Object.keys=(function(){var hasOwnProperty=Object.prototype.hasOwnProperty,hasDontEnumBug=!({toString:null}).propertyIsEnumerable('toString'),dontEnums=['toString','toLocaleString','valueOf','hasOwnProperty','isPrototypeOf','propertyIsEnumerable','constructor'],dontEnumsLength=dontEnums.length;return function(a){if(typeof a!=='object'&&typeof a!=='function'||a===null)throw new TypeError('Object.keys called on non-object');var b=[];for(var c in a){if(hasOwnProperty.call(a,c))b.push(c)}if(hasDontEnumBug){for(var i=0;i<dontEnumsLength;i++){if(hasOwnProperty.call(a,dontEnums[i]))b.push(dontEnums[i])}}return b}})()};
-</script>
-<script type="text/javascript" src="/static/js/poptest.js"></script></body>
+	<script src="https://casualbookworm.com/b1/f5/76/b1f57639c83dbef948eefa8b64183e1e.js"></script>
+
+
+	<script src="https://casualbookworm.com/74/0b/00/740b003479a7eba76fd37c6ed9b4e91a.js"></script>
+
+
+
+
+</body>
+
 </html>
