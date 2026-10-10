@@ -1,6 +1,6 @@
 from time import sleep
 from os import path
-from multiprocessing import Process
+from multiprocessing import get_context
 
 from bottle import Bottle, route, run, template
 
@@ -29,13 +29,15 @@ class TPBApp(Bottle):
         run(self, host=self.host, port=self.port, debug=False, quiet=True)
 
     def start(self):
-        self.process = Process(target=self.run)
+        # Fork the fixture server because Bottle applications cannot be pickled.
+        object.__setattr__(self, 'process', get_context('fork').Process(target=self.run))
         self.process.start()
         sleep(1)
 
     def stop(self):
         self.process.terminate()
-        self.process = None
+        self.process.join()
+        object.__setattr__(self, 'process', None)
 
     @property
     def url(self):

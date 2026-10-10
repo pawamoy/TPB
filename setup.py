@@ -8,7 +8,8 @@ except ImportError:
 setup(
     name='tpb',
     version='v1.3.6',
-    install_requires=['purl', 'dateutils', 'lxml', 'cssselect', 'requests'],
+    install_requires=['purl', 'dateutils', 'lxml', 'cssselect', 'requests', 'platformdirs'],
+    entry_points={'console_scripts': ['tpb=tpb.cli:main']},
     author='Karan Goel',
     author_email='karan@goel.im',
     packages=['tpb', 'tests'],

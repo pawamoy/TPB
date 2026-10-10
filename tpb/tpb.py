@@ -19,6 +19,8 @@ import sys
 import time
 
 from .utils import URL, headers
+from .api import API, format_size
+from .mirrors import PROBE_ERRORS, load_mirrors
 
 from requests import get
 
@@ -50,35 +52,73 @@ class List(object):
 
     _meta = re.compile('Uploaded (.*), Size (.*), ULed by (.*)')
     base_path = ''
+    api_url = None
+    _mirrors = None
 
     def items(self):
         """
         Request URL and parse response. Yield a ``Torrent`` for every torrent
         on page.
         """
-        try:
-            request = get(str(self.url), headers=headers())
-            root = html.fromstring(request.text)
-            items = [self._build_torrent(row) for row in
-                 self._get_torrent_rows(root)]
+        if self._mirrors is None:
+            for item in self._items():
+                yield item
+            return
+
+        failures = []
+        for index, mirror in enumerate(self._mirrors):
+            self.url = URL(mirror['base_url'], self.base_path, segments=list(self.url.segments), defaults=list(self.url.segments.values()))
+            self.api_url = mirror['api_url']
+            try:
+                # Parse a whole page before yielding so a failed mirror cannot duplicate results.
+                items = list(self._items())
+            except PROBE_ERRORS as error:
+                failures.append('{0}: {1}'.format(mirror['base_url'], error))
+                continue
+            self._mirrors = self._mirrors[index:] + self._mirrors[:index]
             for item in items:
                 yield item
-        except Exception as e:
-            pass
+            return
+        raise RuntimeError('All cached mirrors failed. Run `tpb rank-mirrors urls.txt` to refresh them. ' + '; '.join(failures))
+
+    def _items(self):
+        if self.api_url:
+            if self._mirrors is not None:
+                # A shared API can still work after a mirror's torrent pages stop working.
+                response = get(str(self.url.base.path('/search.html')), headers=headers(), timeout=30)
+                response.raise_for_status()
+                root = html.fromstring(response.text)
+                if not root.xpath('//*[@id="torrents"]'):
+                    raise ValueError('The cached mirror no longer serves a supported search page')
+            api = API(self.api_url)
+            for record in self._api_items(api):
+                yield Torrent(**api.torrent_fields(str(self.url.base), record))
+            return
+
+        request = get(str(self.url), headers=headers(), timeout=30)
+        request.raise_for_status()
+        root = html.fromstring(request.text)
+        if root.xpath('//*[@id="torrents"]'):
+            raise ValueError('This site loads torrents with JavaScript. Pass api_url to TPB to use its JSON API.')
+        if root.find('.//table') is None:
+            raise ValueError('The response has no supported torrent listing')
+        items = [self._build_torrent(row) for row in self._get_torrent_rows(root)]
+        for item in items:
+            yield item
 
     def __iter__(self):
         return self.items()
 
     def _get_torrent_rows(self, page):
         """
-        Returns all 'tr' tag rows as a list of tuples. Each tuple is for
-        a single torrent.
+        Return torrent rows without the header or cells that span the table.
         """
         table = page.find('.//table')  # the table with all torrent listing
         if table is None:  # no table means no results:
             return []
         else:
-            return table.findall('.//tr')[1:]  # get all rows but header
+            # Pagination and empty-result messages span the whole table.
+            return [row for row in table.findall('.//tr')[1:] if not row.xpath('./td[@colspan]')]
 
     def _build_torrent(self, row):
         """
@@ -205,12 +245,16 @@ class Search(Paginated):
     """
     base_path = '/search'
 
-    def __init__(self, base_url, query, page='0', order='7', category='0'):
+    def __init__(self, base_url, query, page='0', order='7', category='0', api_url=None):
         super(Search, self).__init__()
+        self.api_url = api_url
         self.url = URL(base_url, self.base_path,
                        segments=['query', 'page', 'order', 'category'],
                        defaults=[query, str(page), str(order), str(category)],
                        )
+
+    def _api_items(self, api):
+        return api.search(self.query(), self.category(), self.order(), self.page())
 
     @self_if_parameters
     def query(self, query=None):
@@ -250,12 +294,16 @@ class Recent(Paginated):
     """
     base_path = '/recent'
 
-    def __init__(self, base_url, page='0'):
+    def __init__(self, base_url, page='0', api_url=None):
         super(Recent, self).__init__()
+        self.api_url = api_url
         self.url = URL(base_url, self.base_path,
                        segments=['page'],
                        defaults=[str(page)],
                        )
+
+    def _api_items(self, api):
+        return api.recent(self.page())
 
 
 class Top(List):
@@ -265,11 +313,15 @@ class Top(List):
     """
     base_path = '/top'
 
-    def __init__(self, base_url, category='0'):
+    def __init__(self, base_url, category='0', api_url=None):
+        self.api_url = api_url
         self.url = URL(base_url, self.base_path,
                        segments=['category'],
                        defaults=[str(category)],
                        )
+
+    def _api_items(self, api):
+        return api.top(self.category())
 
     @self_if_parameters
     def category(self, category=None):
@@ -285,19 +337,31 @@ class Top(List):
 class TPB(object):
 
     """
-    TPB API with searching, most recent torrents and top torrents support.
-    Passes on base_url to the instantiated Search, Recent and Top classes.
+    Search torrents and list recent or top torrents.
+
+    Use base_url for torrent page links. Set api_url to an Apibay-compatible
+    JSON API, or omit it to parse HTML tables from an older mirror.
+    If base_url is omitted, use cached mirrors in rank order.
     """
 
-    def __init__(self, base_url):
+    def __init__(self, base_url=None, api_url=None):
+        self._mirrors = None
+        if base_url is None:
+            self._mirrors = load_mirrors()
+            if api_url is not None:
+                self._mirrors = [dict(base_url=mirror['base_url'], api_url=api_url) for mirror in self._mirrors]
+            base_url = self._mirrors[0]['base_url']
+            api_url = self._mirrors[0]['api_url']
         self.base_url = base_url
+        self.api_url = api_url
 
     def search(self, query, page=0, order=7, category=0, multipage=False):
         """
         Searches TPB for query and returns a list of paginated Torrents capable
         of changing query, categories and orders.
         """
-        search = Search(self.base_url, query, page, order, category)
+        search = Search(self.base_url, query, page, order, category, api_url=self.api_url)
+        search._mirrors = self._mirrors
         if multipage:
             search.multipage()
         return search
@@ -306,13 +370,17 @@ class TPB(object):
         """
         Lists most recent Torrents added to TPB.
         """
-        return Recent(self.base_url, page)
+        recent = Recent(self.base_url, page, api_url=self.api_url)
+        recent._mirrors = self._mirrors
+        return recent
 
     def top(self, category=0):
         """
         Lists top Torrents on TPB optionally filtering by category.
         """
-        return Top(self.base_url, category)
+        top = Top(self.base_url, category, api_url=self.api_url)
+        top._mirrors = self._mirrors
+        return top
 
 
 class Torrent(object):
@@ -323,10 +391,11 @@ class Torrent(object):
 
     def __init__(self, title, url, category, sub_category, magnet_link,
                  torrent_link, comments, has_cover, user_status, created,
-                 size, user, seeders, leechers):
+                 size, user, seeders, leechers, api_url=None):
         self.title = title  # the title of the torrent
         self.url = url  # TPB url for the torrent
-        self.id = self.url.path_segments()[1]
+        self.id = self.url.query_param('id') if api_url else self.url.path_segments()[1]
+        self._api_url = api_url
         self.category = category  # the main category
         self.sub_category = sub_category  # the sub category
         self.magnet_link = magnet_link  # magnet download link
@@ -345,7 +414,11 @@ class Torrent(object):
     @property
     def info(self):
         if self._info is None:
-            request = get(str(self.url), headers=headers())
+            if self._api_url:
+                self._info = API(self._api_url).get('/t.php', id=self.id)['descr']
+                return self._info
+            request = get(str(self.url), headers=headers(), timeout=30)
+            request.raise_for_status()
             root = html.fromstring(request.text)
             info = root.cssselect('#details > .nfo > pre')[0].text_content()
             self._info = info
@@ -354,8 +427,13 @@ class Torrent(object):
     @property
     def files(self):
         if not self._files:
+            if self._api_url:
+                files = API(self._api_url).get('/f.php', id=self.id)
+                self._files = {entry['name'][0]: format_size(entry['size'][0]) for entry in files}
+                return self._files
             url = self.url.path('/ajax_details_filelist.php').query_param('id', self.id)
-            request = get(str(url), headers=headers())
+            request = get(str(url), headers=headers(), timeout=30)
+            request.raise_for_status()
             root = html.fromstring(request.text)
             rows = root.findall('.//tr')
             for row in rows:
